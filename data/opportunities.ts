@@ -1,0 +1,43 @@
+export const opportunities = [
+  {
+    id: 1,
+    featured: true,
+    title: "Beca Erasmus+",
+    organization: "Unión Europea",
+    country: "España",
+    deadline: "30 Septiembre 2026",
+    status: "Abierta",
+    image: "/opportunities/opp1.jpeg",
+  },
+  {
+    id: 2,
+    featured: false,
+    title: "Programa DAAD",
+    organization: "DAAD",
+    country: "Alemania",
+    deadline: "15 Octubre 2026",
+    status: "Próximamente",
+    image: "/opportunities/opp2.jpeg",
+  },
+  {
+    id: 3,
+    featured: false,
+    title: "Fulbright",
+    organization: "Estados Unidos",
+    country: "EE.UU.",
+    deadline: "10 Agosto 2026",
+    status: "Cierra pronto",
+    image: "/opportunities/opp3.jpeg",
+  },
+  {
+    id: 4,
+    featured: false,
+    title: "ELAP Canadá",
+    organization: "Government of Canada",
+    country: "Canadá",
+    deadline: "18 Noviembre 2026",
+    status: "Abierta",
+    image: "/opportunities/opp4.jpeg",
+  },
+];
+

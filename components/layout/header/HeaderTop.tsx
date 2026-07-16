@@ -3,3 +3,4 @@ export default function HeaderTop() {
     <div className="h-2 w-full bg-[var(--color-primary)]" />
   );
 }
+
