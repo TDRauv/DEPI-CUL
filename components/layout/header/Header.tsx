@@ -1,27 +1,45 @@
-import Container from "@/components/ui/Container";
+"use client";
 
+import Container from "@/components/ui/Container";
+import useScroll from "@/hooks/useScroll";
+
+import DesktopMenu from "./DesktopMenu";
 import HeaderTop from "./HeaderTop";
-import Logo from "./logo";
-import Navigation from "./navigation";
+import Logo from "./Logo";
 
 export default function Header() {
-  return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm">
+  const isScrolled = useScroll();
 
+  return (
+    <header
+      className={`
+        fixed
+        top-0
+        left-0
+        right-0
+        z-50
+        transition-all
+        duration-300
+        ${
+          isScrolled
+            ? "bg-white shadow-lg"
+            : "bg-white/95 backdrop-blur-md"
+        }
+      `}
+    >
       <HeaderTop />
 
-      <Container>
+ <Container>
+  <div className="flex h-24 items-center">
 
-        <div className="flex h-24 items-center justify-between">
+    <Logo />
 
-          <Logo />
+    <div className="ml-12">
+      <DesktopMenu />
+    </div>
 
-          <Navigation />
-
-        </div>
-
-      </Container>
-
+  </div>
+</Container>
     </header>
   );
 }

@@ -6,13 +6,13 @@ export default function Logo() {
     <Link
       href="https://ul.edu.co"
       target="_blank"
-      className="flex items-center"
+      rel="noopener noreferrer"
     >
       <Image
         src="/logos/logo-cul.png"
-        alt="Corporación Universitaria Latinoamericana"
+        alt="Logo CUL"
         width={180}
-        height={70}
+        height={60}
         priority
       />
     </Link>

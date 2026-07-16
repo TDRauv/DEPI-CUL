@@ -1,25 +1,10 @@
-import Container from "@/components/ui/Container";
-import Section from "@/components/ui/Section";
-import Title from "@/components/ui/Title";
-import Subtitle from "@/components/ui/Subtitle";
+import Hero from "@/components/home/Hero";
 
 export default function Home() {
   return (
     <main>
-      <Section>
-        <Container>
-
-          <Title center>
-            Departamento de Internacionalización
-          </Title>
-
-          <Subtitle center>
-            Portal oficial del Departamento de Internacionalización
-            de la Corporación Universitaria Latinoamericana.
-          </Subtitle>
-
-        </Container>
-      </Section>
+      <Hero />
     </main>
   );
 }
+

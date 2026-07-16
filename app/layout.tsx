@@ -10,8 +10,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Departamento de Internacionalización | CUL",
-  description:
-    "Portal del Departamento de Internacionalización de la Corporación Universitaria Latinoamericana.",
+  description: "Portal del Departamento de Internacionalización",
 };
 
 export default function RootLayout({
@@ -22,10 +21,8 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${inter.variable} antialiased`}>
-
-         <Header />
+        <Header />
         {children}
-        
       </body>
     </html>
   );

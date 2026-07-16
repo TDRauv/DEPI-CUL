@@ -14,7 +14,7 @@ export default function Container({
       className={`
         mx-auto
         w-full
-        max-w-[1280px]
+        max-w-[1600px]
         px-6
         lg:px-8
         ${className}
