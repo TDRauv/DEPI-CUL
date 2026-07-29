@@ -1,7 +1,9 @@
-import Hero from "@/components/home/Hero";
+import Hero from "@/components/home/hero/Hero";
 import Stats from "@/components/home/Stats";
-import Opportunities from "@/components/home/Opportunities";
+import Opportunities from "@/components/home/opportunities/Opportunities";
 import Dashboard from "@/components/home/dashboard/Dashboard";
+import News from "@/components/home/news/News";
+
 
 
 export default function Home() {
@@ -10,11 +12,11 @@ export default function Home() {
 
       <Hero />
 
-      <Dashboard />
+      <Opportunities />
+
+      <News />
 
       <Stats />
-
-      <Opportunities />
 
     </main>
   );

@@ -12,7 +12,7 @@ export default function HeroContent() {
         <p className="mx-auto mt-8 max-w-3xl text-xl leading-9 lg:text-2xl">
           Te invitamos a transformarte en un CIUDADANO GLOBAL 
         </p>
-
+        
         <Link
           href="/que-es-depi"
           className="

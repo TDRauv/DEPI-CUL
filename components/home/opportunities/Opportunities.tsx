@@ -12,7 +12,7 @@ export default function Opportunities() {
   const others = opportunities.filter((item) => !item.featured);
 
   return (
-    <section className="bg-gradient-to-b from-slate-50 to-white py-24">
+    <section className="bg-linear-to-b from-slate-50 to-white py-24">
       <div className="mx-auto max-w-7xl px-6">
 
         {/* Encabezado */}
@@ -83,4 +83,4 @@ export default function Opportunities() {
       </div>
     </section>
   );
-}
+} 
