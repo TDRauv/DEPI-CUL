@@ -13,7 +13,7 @@ export default function Section({
     <section
       className={`
         py-20
-        lg:py-28
+        lg:py-10
         ${className}
       `}
     >

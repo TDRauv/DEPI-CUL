@@ -4,8 +4,8 @@ export const news: News[] = [
 
 {
 id:1,
-title:"Convenio internacional con universidades ",
-summary:"La Corporación Universitaria Latinoamericana fortalece sus alianzas estratégicas mediante la firma de nuevos convenios académicos.",
+title:"NAFSA 2026 Annual Conference & Expo",
+summary:"Expo, realizada del 26 al 29 de mayo de 2026 en Orlando, Florida (EE. UU.), representada por la directora del Departamento de Internacionalización, Kelin Pino Silvera.",
 image:"/news/news1.jpg",
 date:"15 Julio 2026",
 category:"Convenios",

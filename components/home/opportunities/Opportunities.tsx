@@ -1,86 +1,54 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
-import OpportunityCard from "@/components/cards/OpportunityCard";
-import FeaturedOpportunityCard from "@/components/cards/FeaturedOpportunityCard";
+import OpportunitiesGrid from "./OpportunitiesGrid";
 
-import { opportunities } from "@/data/opportunities";
+import Section from "@/components/ui/Section";
+import Container from "@/components/ui/Container";
+
+import SectionBadge from "@/components/ui/typography/SectionBadge";
+import SectionTitle from "@/components/ui/typography/SectionTitle";
+import SectionSubtitle from "@/components/ui/typography/SectionSubtitle";
 
 export default function Opportunities() {
-  const featured = opportunities.find((item) => item.featured);
-
-  const others = opportunities.filter((item) => !item.featured);
-
   return (
-    <section className="bg-linear-to-b from-slate-50 to-white py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <Section className="bg-slate-50">
 
-        {/* Encabezado */}
+      <Container>
 
-        <div className="mb-16 flex flex-col items-center justify-between gap-8 lg:flex-row">
+        <div className="mx-auto max-w-3xl text-center">
 
-          <div className="max-w-3xl">
+          <SectionBadge>
+            Oportunidades
+          </SectionBadge>
 
-            <span className="text-sm font-semibold uppercase tracking-[0.25em] text-[#003B70]">
-              Internacionalización
-            </span>
-
-            <h2 className="mt-3 text-5xl font-bold text-slate-800">
+          <div className="mt-5">
+            <SectionTitle center>
               Oportunidades y Becas
-            </h2>
-
-            <p className="mt-6 text-lg leading-8 text-slate-600">
-              Descubre convocatorias, becas internacionales,
-              programas de intercambio y oportunidades de movilidad
-              académica dirigidas a estudiantes, docentes y
-              administrativos de la Corporación Universitaria
-              Latinoamericana.
-            </p>
-
+            </SectionTitle>
           </div>
 
+          <SectionSubtitle center>
+            Descubre las convocatorias, becas y programas internacionales
+            disponibles para estudiantes, docentes y administrativos de la CUL.
+          </SectionSubtitle>
+
+        </div>
+
+        <OpportunitiesGrid />
+
+        <div className="mt-16 flex justify-center">
+
           <Link
-            href="/relacionamiento/becas-oportunidades"
-            className="inline-flex items-center gap-2 rounded-xl bg-[#003B70] px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-[#002B52]"
+            href="/relacionamiento-y-oportunidades/becas-oportunidades"
+            className="rounded-full bg-[#003B70] px-8 py-4 font-semibold text-white transition-all duration-300 hover:scale-105 hover:bg-[#002B52]"
           >
-            Ver todas
-            <ArrowRight size={18} />
+            Ver todas las oportunidades
           </Link>
 
         </div>
 
-        {/* Convocatorias */}
+      </Container>
 
-        <div className="grid gap-8 lg:grid-cols-3">
-
-          {/* Convocatoria principal */}
-
-          <div className="lg:col-span-2">
-
-            {featured && (
-              <FeaturedOpportunityCard
-                {...featured}
-              />
-            )}
-
-          </div>
-
-          {/* Convocatorias secundarias */}
-
-          <div className="space-y-6">
-
-            {others.map((item) => (
-              <OpportunityCard
-                key={item.id}
-                {...item}
-              />
-            ))}
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
+    </Section>
   );
-} 
+}

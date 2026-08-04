@@ -1,7 +1,7 @@
 export default function QueEsDepi() {
   return (
     <main>
-      <h1>¿Qué es DEPI?</h1>
+      <h1>Ecosistema CUL Global</h1>
     </main>
   );
 }

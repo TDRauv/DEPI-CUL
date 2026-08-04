@@ -1,7 +1,7 @@
 export default function InternacionalizaciónArticulada() {
   return (
     <main>
-      <h1>Internacionalizacion Articulada</h1>
+      <h1>Internacionalización Articulada</h1>
     </main>
   );
 }

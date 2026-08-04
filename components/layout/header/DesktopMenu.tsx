@@ -2,16 +2,12 @@ import Link from "next/link";
 
 const menu = [
   {
-    title: "¿Qué es DEPI?",
-    href: "/que-es-depi",
+    title: "Ecosistema CUL Global",
+    href: "/ecosistema-cul-global",
   },
   {
-    title: "Movilidad",
+    title: "Movilidad Académica",
     href: "/movilidad-academica",
-  },
-  {
-    title: "Internacionalización Articulada",
-    href: "/internacionalizacion-articulada",
   },
   {
     title: "Relacionamiento",
