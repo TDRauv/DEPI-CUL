@@ -10,19 +10,19 @@ const stats = [
     label: "Convenios Internacionales",
   },
   {
-    icon: Handshake,
-    number: 120,
-    label: "Movilidades Académicas",
+    icon: GraduationCap,
+    number: 840,
+    label: "Movilidades Entrantes",
   },
   {
     icon: GraduationCap,
-    number: 100,
-    label: "Estudiantes Beneficiados",
+    number: 574,
+    label: "Movilidades Salientes",
   },
   {
     icon: Plane,
-    number: 30,
-    label: "Países Aliados",
+    number: 1400,
+    label: "Estudiantes Beneficiados",
   },
 ];
 

@@ -5,6 +5,10 @@ import { usePathname } from "next/navigation";
 
 const menu = [
   {
+    title: "Inicio",
+    href: "/",
+  },
+  {
     title: "Ecosistema CUL Global",
     href: "/ecosistema-cul-global",
   },
@@ -12,17 +16,17 @@ const menu = [
   //  title: "Movilidad Académica",
   //  href: "/movilidad-academica",
   // },
-  {
-    title: "Relacionamiento",
-    href: "/relacionamiento",
-  },
+  //{
+  //  title: "Relacionamiento",
+  //  href: "/relacionamiento",
+  //},
   {
     title: "Programas Inter",
     href: "/programas-inter",
   },
   {
-    title: "Clubs",
-    href: "/clubs", // Nota: se recomienda minúscula en URLs web
+    title: "Internacionalizacion Articulada",
+    href: "/internacionalizacion-articulada", 
   },
   {
     title: "Canales de Comunicación",
