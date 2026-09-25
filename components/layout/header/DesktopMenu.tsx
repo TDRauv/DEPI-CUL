@@ -29,8 +29,8 @@ const menu = [
     href: "/internacionalizacion-articulada", 
   },
   {
-    title: "Canales de Comunicación",
-    href: "/canales-de-comunicacion",
+    title: "Contacto e Interacción",
+    href: "/contacto-e-interaccion",
   },
   {
     title: "Bienvenidos a Barranquilla",

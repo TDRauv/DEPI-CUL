@@ -124,11 +124,9 @@ export default function ClubsPage() {
             Programación Clubes 2026-2 · DEPI
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-[#003B70] tracking-tight">
-            Clubes y Formación Integral
+            Multilinguismo e Interculturalidad 
           </h1>
-          <p className="mt-3 text-lg sm:text-xl font-bold text-[#D9A404]">
-            Promoción de la actividad internacional, la interculturalidad y el multilingüismo
-          </p>
+          
           <p className="mt-2 text-slate-600 text-base">
             Espacios diseñados para desarrollar habilidades globales, aprendizaje de lenguas y tecnología aplicada.
           </p>

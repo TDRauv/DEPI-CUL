@@ -21,8 +21,8 @@ const stats = [
   },
   {
     icon: Plane,
-    number: 1400,
-    label: "Estudiantes Beneficiados",
+    number: 5,
+    label: "Alianzas Estrategicas",
   },
 ];
 
