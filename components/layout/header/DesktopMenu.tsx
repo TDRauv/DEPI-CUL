@@ -5,10 +5,10 @@ const menu = [
     title: "Ecosistema CUL Global",
     href: "/ecosistema-cul-global",
   },
-  {
-    title: "Movilidad Académica",
-    href: "/movilidad-academica",
-  },
+// {
+//  title: "Movilidad Académica",
+// href: "/movilidad-academica",
+//},
   {
     title: "Relacionamiento",
     href: "/relacionamiento",
@@ -16,6 +16,14 @@ const menu = [
   {
     title: "Programas Inter",
     href: "/programas-inter",
+  },
+    {
+    title: "Clubs",
+    href: "/Clubs",
+  },
+  {
+    title: "Canales de Comunicación",
+    href: "/canales-de-comunicacion",
   },
   {
     title: "Bienvenidos a Barranquilla",

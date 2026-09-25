@@ -16,6 +16,7 @@ export default function Home() {
       <About />
 
       <Opportunities />
+      
       <News />
 
       <Stats />

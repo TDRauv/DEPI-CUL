@@ -23,13 +23,13 @@ export const opportunities: Opportunity[] = [
   },
   {
     id: 3,
-    title: "Becas Icetex",
+    title: "Boletines Informativos",
     summary:
       "Conoce las convocatorias abiertas para estudiar.",
-    image: "/opportunities/becas-icetex.jpg",
+    image: "/opportunities/imgboletininformativo.jpg",
     category: "Beca",
-    deadline: "Cierre: 10 Sep 2026",
-    slug: "Icetex",
+    deadline: "Cierre: 20 Oct 2026",
+    slug: "DEPI",
   },
 ];
 

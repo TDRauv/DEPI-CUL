@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="relative h-screen w-full overflow-hidden">
       <HeroCarousel />
 
-      <div className="absolute inset-0 z-20">
+      <div className="absolute inset-0 z-20 pointer-events-none">
         <HeroContent />
       </div>
     </section>
