@@ -9,11 +9,11 @@ export default function HeroContent() {
         </h1>
 
         <p className="mx-auto mt-8 max-w-3xl text-xl leading-9 lg:text-2xl">
-          Te invitamos a transformarte en un CIUDADANO GLOBAL
+          Te invitamos a transformarte en un CIUDADANO GLOBAL[cite: 2]
         </p>
 
         <Link
-          href="/que-es-depi"
+          href="/ecosistema-cul-global"
           className="
             mt-10
             inline-flex
@@ -27,6 +27,8 @@ export default function HeroContent() {
             duration-300
             hover:bg-[#002B52]
             pointer-events-auto
+            text-white
+            shadow-lg
           "
         >
           Conoce el DEPI

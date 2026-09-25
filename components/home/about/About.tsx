@@ -56,7 +56,7 @@ items={about.features}
 
 <Link
 
-href="/que-es-depi"
+href="/ecosistema-cul-global"
 
 className="
 mt-10
