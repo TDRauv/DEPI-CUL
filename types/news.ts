@@ -14,4 +14,6 @@ export interface News {
 
     slug: string;
 
+    content?: string | string[]; 
+
 }
