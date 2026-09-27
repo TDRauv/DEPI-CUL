@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Geist } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header/Header";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,6 +14,13 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Departamento de Internacionalización | CUL",
   description: "Portal del Departamento de Internacionalización",
+};
+
+// 🔹 ESTA ES LA CONFIGURACIÓN CLAVE PARA CELULARES
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
