@@ -12,18 +12,18 @@ const menu = [
     title: "Ecosistema CUL Global",
     href: "/ecosistema-cul-global",
   },
-  // {
-  //  title: "Movilidad Académica",
-  //  href: "/movilidad-academica",
-  // },
+  {
+   title: "Movilidad Académica",
+   href: "/movilidad-academica",
+   },
   //{
   //  title: "Relacionamiento",
   //  href: "/relacionamiento",
   //},
-  {
-    title: "Programas Inter",
-    href: "/programas-inter",
-  },
+  // {
+  //   title: "Programas Inter",
+  //  href: "/programas-inter",
+  // },
   {
     title: "Internacionalizacion Articulada",
     href: "/internacionalizacion-articulada", 
@@ -33,8 +33,8 @@ const menu = [
     href: "/contacto-e-interaccion",
   },
   {
-    title: "Bienvenidos a Barranquilla",
-    href: "/barranquilla",
+    title: "#ImpactoGlobalCUL",
+    href: "/impacto-global-cul",
   },
 ];
 
