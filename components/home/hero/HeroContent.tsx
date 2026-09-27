@@ -13,7 +13,7 @@ export default function HeroContent() {
         </p>
 
         <Link
-          href="/que-es-depi"
+          href="/ecosistema-cul-global"
           className="
             mt-10
             inline-flex
