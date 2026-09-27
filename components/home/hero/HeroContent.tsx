@@ -13,7 +13,7 @@ export default function HeroContent() {
         </p>
 
         <Link
-          href="/ecosistema-cul-global"
+          href="/que-es-depi"
           className="
             mt-10
             inline-flex
@@ -27,8 +27,6 @@ export default function HeroContent() {
             duration-300
             hover:bg-[#002B52]
             pointer-events-auto
-            text-white
-            shadow-lg
           "
         >
           Conoce el DEPI
@@ -37,3 +35,4 @@ export default function HeroContent() {
     </div>
   );
 }
+
