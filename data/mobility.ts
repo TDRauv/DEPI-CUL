@@ -342,7 +342,7 @@ export const MOBILITY_CASES: MobilityItem[] = [
     title: 'English Summer Camp CUL & Subvención ICETEX',
     subtitle: 'Docente Especialista Entrante en Lengua Extranjera',
     institution: 'DEPI CUL en alianza con Colegio INSTENALCO',
-    country: 'Internacional',
+    country: 'Jamaica',
     flag: '🌐',
     dates: '14 de octubre al 1 de noviembre',
     image: '/movilidad/movi11.png',

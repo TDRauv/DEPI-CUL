@@ -15,9 +15,15 @@ const categoryColors: Record<string, string> = {
 };
 
 export default function OpportunityCard({ opportunity }: Props) {
+  // Si la oportunidad es la de Movilidad / intercambio, va directo a /movilidad-academica
+  const targetHref =
+    opportunity.slug === "intercambio"
+      ? "/movilidad-academica"
+      : `/oportunidades/${opportunity.slug}`;
+
   return (
     <Link
-      href={`/oportunidades/${opportunity.slug}`}
+      href={targetHref}
       className="group block h-full focus:outline-none"
     >
       <article
@@ -112,7 +118,11 @@ export default function OpportunityCard({ opportunity }: Props) {
               group-hover:gap-4
             "
           >
-            <span>Ver convocatoria</span>
+            <span>
+              {opportunity.slug === "intercambio"
+                ? "Ver Movilidad Académica"
+                : "Ver convocatoria"}
+            </span>
             <ArrowRight size={18} />
           </div>
         </div>

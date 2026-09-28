@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 
@@ -37,8 +38,8 @@ export default function ImpactoGlobalPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-[#003B70] text-white px-5 py-2.5 rounded-xl font-medium text-sm hover:bg-[#002d57] transition-colors w-fit"
             >
-              <span>Ver publicación en Instagram</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span className="text-white">Ver publicación en Instagram</span>
+              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
             </Link>
@@ -104,10 +105,10 @@ export default function ImpactoGlobalPage() {
                 Beca Internacional Estudiantil
               </span>
               <h2 className="text-2xl sm:text-4xl font-bold text-[#003B70] mt-1">
-                Programa Internacional de Ciudadanía Global 2025
+                Programa Internacional de Ciudadanía Global
               </h2>
               <p className="text-slate-600 mt-2 text-sm sm:text-base">
-                Encuentros interculturales para la transformación de vidas y territorios. Iniciativa coorganizada con ICETEX, UISEK (Ecuador), IUB, Politécnico Costa Atlántica y la CUL.
+                Encuentros interculturales para la transformación de vidas y territorios. Beca para estudiantes con apoyo de ICETEX, en alianza con CUL, UB, Politécnico Costa Atlántica y UISEK (Ecuador).
               </p>
             </div>
             <div className="bg-amber-50 border border-amber-200 p-4 rounded-2xl text-center lg:text-right shrink-0">
@@ -128,14 +129,14 @@ export default function ImpactoGlobalPage() {
               />
             </div>
 
-            {/* Línea de tiempo de las 3 fases */}
+            {/* Fases */}
             <div className="lg:col-span-7 flex flex-col gap-4">
               <div className="border border-slate-200 rounded-2xl p-5 bg-slate-50">
                 <span className="text-xs font-bold text-slate-400 uppercase">Fase 1</span>
                 <h3 className="text-base font-bold text-[#003B70] mt-1">Encuentros Virtuales</h3>
                 <p className="text-xs font-semibold text-[#D9A404]">Sábados: 12 y 26 de abril, 10 de mayo y 13 de septiembre</p>
                 <p className="text-xs text-slate-600 mt-2">
-                  Sesiones teóricas y colaborativas sincrónicas para el desarrollo de competencias interculturales y ciudadanía global.
+                  Jornadas de inducción intercultural y trabajo colaborativo entre las universidades aliadas.
                 </p>
               </div>
 
@@ -144,7 +145,7 @@ export default function ImpactoGlobalPage() {
                 <h3 className="text-base font-bold text-[#003B70] mt-1">Inmersión Presencial en Ecuador</h3>
                 <p className="text-xs font-semibold text-[#003B70]">Sierra y Amazonía Ecuatoriana (22 de junio – 6 de julio)</p>
                 <p className="text-xs text-slate-600 mt-2">
-                  Trabajo de campo, intercambio académico y vivencial junto a estudiantes y docentes de la Universidad Internacional SEK (UISEK).
+                  Trabajo de campo y experiencia presencial junto a estudiantes y docentes de la Universidad Internacional SEK (UISEK).
                 </p>
               </div>
 
@@ -153,7 +154,7 @@ export default function ImpactoGlobalPage() {
                 <h3 className="text-base font-bold text-[#003B70] mt-1">Misión en Barranquilla</h3>
                 <p className="text-xs font-semibold text-[#D9A404]">Sede CUL y Territorio (22 – 26 de septiembre)</p>
                 <p className="text-xs text-slate-600 mt-2">
-                  Actividades académicas, talleres de socialización, clausura institucional y experiencias de sostenibilidad en la ciudad.
+                  Actividades académicas conjuntas, socialización de aprendizajes, clausura y experiencias de sostenibilidad.
                 </p>
               </div>
             </div>
@@ -170,7 +171,7 @@ export default function ImpactoGlobalPage() {
                   Estudiantes Seleccionados
                 </h3>
                 <p className="text-sm text-slate-600 mt-1">
-                  Estudiantes de las instituciones aliadas beneficiarios del programa.
+                  Estudiantes de las instituciones aliadas participantes del programa.
                 </p>
               </div>
               <Link
@@ -327,12 +328,12 @@ export default function ImpactoGlobalPage() {
               </div>
             </div>
 
-            {/* Enlaces a los Reels / Videos */}
+            {/* Videos oficiales */}
             <div className="mt-8 bg-gradient-to-r from-[#003B70] to-[#00264d] text-white rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
               <div>
                 <h4 className="text-lg font-bold">Videos Oficiales del Programa</h4>
                 <p className="text-xs sm:text-sm text-slate-200 mt-1">
-                  Revive las experiencias , recorridos y aprendizajes de los participantes.
+                  Revive las experiencias vivenciales, recorridos y aprendizajes de los participantes en video.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -340,23 +341,23 @@ export default function ImpactoGlobalPage() {
                   href="https://www.instagram.com/p/DPfSKGnjDfL/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 rounded-xl text-xs font-bold transition-colors inline-flex items-center gap-2"
+                  className="bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 rounded-xl text-xs font-bold text-white transition-colors inline-flex items-center gap-2"
                 >
                   <svg className="w-4 h-4 fill-current text-[#D9A404]" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
-                  <span>Ver Reel 1</span>
+                  <span className="text-white">Ver Reel 1</span>
                 </Link>
                 <Link
                   href="https://www.instagram.com/p/DRdPT4DCQnJ/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 rounded-xl text-xs font-bold transition-colors inline-flex items-center gap-2"
+                  className="bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 rounded-xl text-xs font-bold text-white transition-colors inline-flex items-center gap-2"
                 >
                   <svg className="w-4 h-4 fill-current text-[#D9A404]" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
-                  <span>Ver Reel 2</span>
+                  <span className="text-white">Ver Reel 2</span>
                 </Link>
               </div>
             </div>

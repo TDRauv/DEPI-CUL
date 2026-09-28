@@ -3,12 +3,12 @@ import { Opportunity } from "@/types/opportunity";
 export const opportunities: Opportunity[] = [
   {
     id: 1,
-    title: "Intercambio Académico",
+    title: "Movilidad Académica",
     summary:
-      "Conoce las convocatorias abiertas para estudiar un semestre en el exterior.",
-    image: "/opportunities/intercambio.png",
+      "Conoce las oportunidades de movilidad academica en el DEPI.",
+    image: "/hero/hero5.jpg",
     category: "Movilidad",
-    deadline: "Cierre: 15 Ago 2026",
+    deadline: "2026",
     slug: "intercambio",
   },
   {
@@ -89,7 +89,7 @@ export const opportunities: Opportunity[] = [
       "Conoce las convocatorias abiertas para estudiar.",
     image: "/opportunities/imgboletininformativo.jpg",
     category: "Beca",
-    deadline: "Cierre: 20 Oct 2026",
+    deadline: "2026",
     slug: "boletines-informativos",
     content: [
       "Comunidad CUL: nos permitimos compartir nuestros boletines informativos CUL GLOBAL, más cerca de ti, un espacio para la socialización de información de interés sobre becas, oportunidades, convocatorias, movilidad académica, cooperación internacional, experiencias globales, noticias y actividades de internacionalización.",

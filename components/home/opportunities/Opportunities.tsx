@@ -11,7 +11,7 @@ export default function Opportunities() {
     <Section className="bg-slate-50">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
-          <SectionBadge>Financiamiento y Movilidad</SectionBadge>
+          <SectionBadge>Oportunidades Globales</SectionBadge>
 
           <div className="mt-5">
             <SectionTitle center>Oportunidades y Convocatorias</SectionTitle>

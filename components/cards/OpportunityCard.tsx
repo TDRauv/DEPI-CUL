@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { CalendarDays, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 type Props = {
   title: string;
@@ -62,10 +63,13 @@ export default function OpportunityCard({
         </div>
 
         <button className="flex items-center gap-2 font-semibold text-[#003B70] transition-all hover:gap-3">
-          Ver convocatoria
+          Ver Oportunidad
           <ArrowRight size={18} />
         </button>
       </div>
     </article>
   );
+
+
+
 }

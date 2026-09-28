@@ -50,7 +50,7 @@ export const contactInfo = {
     },
     {
       name: "Carolina Florez",
-      role: "Movilidad Académica",
+      role: "Ayudantia - DEPI - Movilidad Académica",
       subrole: "Global Ambassador (Global CLUB)",
       email: "movilidad@ul.edu.co",
       image: "/contact/team/caro.png",

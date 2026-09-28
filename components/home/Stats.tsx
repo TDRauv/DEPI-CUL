@@ -6,8 +6,8 @@ import { Globe2, Handshake, GraduationCap, Plane } from "lucide-react";
 const stats = [
   {
     icon: Globe2,
-    number: 20,
-    label: "Convenios Internacionales",
+    number: 24,
+    label: "Convenios Activos",
   },
   {
     icon: GraduationCap,
@@ -21,7 +21,7 @@ const stats = [
   },
   {
     icon: Plane,
-    number: 5,
+    number: 15,
     label: "Alianzas Estrategicas",
   },
 ];

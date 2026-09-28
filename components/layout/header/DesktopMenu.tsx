@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-// Exportamos el menú para que Header y el menú móvil lean exactamente las mismas pestañas
 export const menu = [
   {
     title: "Inicio",
@@ -13,21 +12,29 @@ export const menu = [
     title: "Ecosistema CUL Global",
     href: "/ecosistema-cul-global",
   },
+  // {
+  //  title: "Movilidad Académica",
+  //  href: "/movilidad-academica",
+  // },
+  //{
+  //  title: "Relacionamiento",
+  //  href: "/relacionamiento",
+  //},
   {
-    title: "Movilidad Académica",
-    href: "/movilidad-academica",
-  },
+    title: "CUL Global Virtual",
+    href: "/cul-global-virtual",
+  },  
   {
     title: "Internacionalizacion Articulada",
-    href: "/internacionalizacion-articulada",
+    href: "/internacionalizacion-articulada", 
   },
   {
     title: "Contacto e Interacción",
     href: "/contacto-e-interaccion",
   },
   {
-    title: "#ImpactoGlobalCUL",
-    href: "/impacto-global-cul",
+    title: "Bienvenidos a Barranquilla",
+    href: "/barranquilla",
   },
 ];
 
@@ -56,7 +63,7 @@ export default function DesktopMenu() {
           >
             {item.title}
 
-            {/* Línea indicadora activa */}
+            {/* Línea indicadora activa o en hover */}
             <span
               className={`
                 absolute
@@ -68,7 +75,7 @@ export default function DesktopMenu() {
                 transition-transform
                 duration-300
                 origin-left
-                ${isActive ? "scale-x-100" : "scale-x-0"}
+                ${isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}
               `}
             />
           </Link>
