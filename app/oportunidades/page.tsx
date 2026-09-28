@@ -10,22 +10,25 @@ export default function OportunidadesPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Todas");
 
-  // Obtener categorías únicas dinámicamente
-  const categories = useMemo(() => {
-    const unique = Array.from(
-      new Set(opportunities.map((item) => item.category))
-    );
+  // Obtener categorías únicas dinámicamente y aplanadas a string[]
+  const categories: string[] = useMemo(() => {
+    const rawCategories = opportunities.flatMap((item) => item.category);
+    const unique = Array.from(new Set(rawCategories.filter(Boolean)));
     return ["Todas", ...unique];
   }, []);
 
-  // Filtrado reactivo por texto y categoría
+  // Filtrado reactivo por texto y categoría (soporta string o string[])
   const filteredOpportunities = useMemo(() => {
     return opportunities.filter((item) => {
       const matchesSearch =
         item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item.summary.toLowerCase().includes(searchTerm.toLowerCase());
+
       const matchesCategory =
-        selectedCategory === "Todas" || item.category === selectedCategory;
+        selectedCategory === "Todas" ||
+        (Array.isArray(item.category)
+          ? item.category.includes(selectedCategory)
+          : item.category === selectedCategory);
 
       return matchesSearch && matchesCategory;
     });
