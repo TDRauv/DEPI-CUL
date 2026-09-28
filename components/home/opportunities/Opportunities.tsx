@@ -14,12 +14,12 @@ export default function Opportunities() {
           <SectionBadge>Financiamiento y Movilidad</SectionBadge>
 
           <div className="mt-5">
-            <SectionTitle center>Oportunidades y Becas</SectionTitle>
+            <SectionTitle center>Oportunidades y Convocatorias</SectionTitle>
           </div>
 
           <SectionSubtitle center>
-            Accede a convocatorias abiertas, fondos de cooperación internacional
-            y programas de apoyo académico.
+            Descubre convocatorias, becas, programas, estancias académicas, movilidad nacional e internacional
+            y otras oportunidades compartidas por el DEPI para fortalecer tu experiencia global.
           </SectionSubtitle>
         </div>
 

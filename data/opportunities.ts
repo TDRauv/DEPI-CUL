@@ -13,7 +13,7 @@ export const opportunities: Opportunity[] = [
   },
   {
     id: 2,
-    title: "Convocatoria Pasantía de Investigación Verano Científico 2026 – Programa Delfín",
+    title: "PROGRAMA DEL VERANO CIENTIFICO - DELFÍN 2026",
     summary:
       "Vive una estancia de verano con un investigador internacional de manera virtual o presencial entre junio y julio de 2026.",
     image: "/opportunities/delfin2026.png",

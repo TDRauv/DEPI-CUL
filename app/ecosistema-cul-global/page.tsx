@@ -160,7 +160,7 @@ export default function EcosistemaPage() {
           </span>
 
           <h1 className="text-4xl font-extrabold tracking-tight text-[#003B70] sm:text-5xl uppercase">
-            Ecosistema CUL Global® / CUL Global Hub
+            Ecosistema CUL Global / CUL Global Hub
           </h1>
 
           <p className="mt-2 text-xl font-bold text-[#D9A404]">
@@ -178,6 +178,14 @@ export default function EcosistemaPage() {
             establecidos, el desarrollo y fortalecimiento de programas académicos conjuntos, la visibilidad 
             y el reconocimiento a través de la cooperación interinstitucional regional, nacional y mundial.
           </p>
+          <p className="mt-6 text-gray-700 text-base sm:text-lg leading-relaxed font-normal">
+            Las estrategias del Ecosistema CUL están dirigidas a los estudiantes de las diferentes modalidades de la institucion,
+            incluyendo los programas presenciales y virtuales, a los docentes, investigadores y administrativos
+            garantizando oportunidades de internacionalización en casa, movilidad virtual, movilidad presencial, cooperación
+            multilingüismo e interculturalidad.
+          </p>
+
+
         </div>
 
         {/* 1. IDENTIDAD Y FUNDAMENTOS */}

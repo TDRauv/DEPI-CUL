@@ -128,7 +128,8 @@ export default function ClubsPage() {
           </h1>
           
           <p className="mt-2 text-slate-600 text-base">
-            Espacios diseñados para desarrollar habilidades globales, aprendizaje de lenguas y tecnología aplicada.
+            ¿Quien puede participar?
+            Estan dirigidas a los estudiantes de la modalidad virtual y presencial, docentes, administrativos, aliados y comunidad externa.
           </p>
         </div>
 
