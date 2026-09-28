@@ -33,8 +33,8 @@ export const menu = [
     href: "/contacto-e-interaccion",
   },
   {
-    title: "Bienvenidos a Barranquilla",
-    href: "/barranquilla",
+    title: "#ImpactoGlobalCUL",
+    href: "/impacto-global-cul",
   },
 ];
 
