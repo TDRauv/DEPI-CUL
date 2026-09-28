@@ -10,14 +10,15 @@ import {
   Sparkles,
 } from "lucide-react";
 import TeamCard from "@/components/cards/TeamCard";
+import AgreementsAndAlliances from "@/components/contact/AgreementsAndAlliances";
 import { contactInfo } from "@/data/contact";
 
 export default function ContactoPage() {
   return (
     <main className="min-h-screen bg-slate-50 pt-28 pb-24">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-16">
         {/* Retorno */}
-        <div className="mb-6">
+        <div>
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-sm font-semibold text-[#003B70] hover:text-[#D9A404] transition-colors group"
@@ -28,7 +29,7 @@ export default function ContactoPage() {
         </div>
 
         {/* Hero Header */}
-        <div className="rounded-3xl bg-gradient-to-r from-[#002244] via-[#003B70] to-[#002B52] p-8 sm:p-12 text-white shadow-xl mb-12">
+        <div className="rounded-3xl bg-gradient-to-r from-[#002244] via-[#003B70] to-[#002B52] p-8 sm:p-12 text-white shadow-xl">
           <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 text-[#D9A404] border border-white/15 mb-4">
             Comunidad y Canales
           </span>
@@ -168,6 +169,9 @@ export default function ContactoPage() {
             </div>
           </div>
         </section>
+
+        {/* Sección: Alianzas Estratégicas y Convenios Académicos */}
+        <AgreementsAndAlliances />
       </div>
     </main>
   );

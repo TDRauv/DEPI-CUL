@@ -20,7 +20,7 @@ export interface Opportunity {
   title: string;
   summary: string;
   image: string;
-  category: string;
+  category: string | string[];
   deadline: string;
   slug: string;
   modality?: string;
@@ -38,3 +38,4 @@ export interface Opportunity {
   content?: string[];
   bulletins?: BulletinYear[];
 }
+

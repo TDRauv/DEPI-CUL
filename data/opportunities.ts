@@ -88,7 +88,7 @@ export const opportunities: Opportunity[] = [
     summary:
       "Conoce las convocatorias abiertas para estudiar.",
     image: "/opportunities/imgboletininformativo.jpg",
-    category: "Beca",
+    category: ["BECA", "CONVOCATORIAS", "ACTIVIDADES", "EVENTOS"],
     deadline: "2026",
     slug: "boletines-informativos",
     content: [

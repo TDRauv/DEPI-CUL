@@ -51,14 +51,8 @@ export default function DelfinOpportunityPage() {
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-lg font-black text-[#003B70]">Delfín {call.year}</span>
-                  <span
-                    className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full ${
-                      call.year === "2026"
-                        ? "bg-green-100 text-green-800"
-                        : "bg-slate-200 text-slate-700"
-                    }`}
-                  >
-                    {call.year === "2026" ? "Vigente" : "Finalizada"}
+                  <span className="text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-slate-200 text-slate-700">
+                    Finalizada
                   </span>
                 </div>
                 <p className="text-xs font-semibold text-[#D9A404] mb-1">{call.dates}</p>
@@ -85,8 +79,8 @@ export default function DelfinOpportunityPage() {
                   />
                 </div>
                 <div className="lg:w-2/3 w-full space-y-4">
-                  <span className="text-xs font-bold text-[#D9A404] uppercase tracking-wider">
-                    Convocatoria Activa 2026
+                  <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                    Convocatoria Finalizada 2026
                   </span>
                   <h3 className="text-2xl sm:text-3xl font-extrabold text-[#003B70]">
                     {currentDelfin.title}
@@ -99,8 +93,8 @@ export default function DelfinOpportunityPage() {
                     <span className="bg-blue-100 text-[#003B70] text-xs font-bold px-3 py-1 rounded-full">
                       Modalidad: {currentDelfin.modality}
                     </span>
-                    <span className="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full">
-                      {currentDelfin.deadline}
+                    <span className="bg-slate-200 text-slate-700 text-xs font-bold px-3 py-1 rounded-full">
+                      Convocatoria Concluida
                     </span>
                   </div>
 
@@ -179,7 +173,7 @@ export default function DelfinOpportunityPage() {
             </div>
           )}
 
-{/* Enlace para años anteriores */}
+          {/* Enlace para años anteriores */}
           {selectedYear !== "2026" && (() => {
             const pastCall = DELFIN_CALLS.find((c) => c.year === selectedYear);
             if (!pastCall?.instagramUrl) return null;
@@ -230,20 +224,9 @@ export default function DelfinOpportunityPage() {
                     alt={exp.title}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     onError={(e) => {
-                      // Oculta la etiqueta img rota si el archivo no está en public/
                       (e.target as HTMLElement).style.display = "none";
                     }}
                   />
-                  {/* Respaldo decorativo en caso de que no cargue la foto */}
-                  <div className="absolute inset-0 -z-0 flex flex-col items-center justify-center p-4 text-center">
-                    <span className="text-3xl mb-1">🔬</span>
-                    <span className="text-white text-xs font-bold uppercase tracking-wider">
-                      Verano Delfín {exp.year}
-                    </span>
-                    <span className="text-slate-300 text-[11px] mt-0.5">
-                      Registro Institucional DEPI
-                    </span>
-                  </div>
                 </div>
 
                 <div className="p-6">

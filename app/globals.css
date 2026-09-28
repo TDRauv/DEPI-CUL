@@ -173,3 +173,39 @@ img {
     @apply font-sans;
   }
 }
+
+/* Animación Carrusel Infinito (Marquee) */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Regla específica para botones con fondo azul oscuro:
+   Afecta únicamente a botones o píldoras con fondo azul sin alterar la navegación ni textos regulares */
+button.bg-\[\#003B70\],
+button.bg-\[\#003b70\],
+button.bg-blue-900,
+button.bg-blue-950,
+a.bg-\[\#003B70\],
+a.bg-\[\#003b70\],
+a.bg-blue-900,
+a.bg-blue-950,
+.rounded-full.bg-\[\#003B70\],
+.rounded-full.bg-\[\#003b70\] {
+  color: #ffffff !important;
+}
+
+/* Asegurar que el menú de navegación mantenga sus colores de texto */
+header nav a {
+  color: inherit;
+}

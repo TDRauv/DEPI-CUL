@@ -8,10 +8,14 @@ interface Props {
 }
 
 const categoryColors: Record<string, string> = {
-  Movilidad: "bg-green-100 text-green-800",
-  Investigación: "bg-purple-100 text-purple-800",
-  Beca: "bg-blue-100 text-[#003B70]",
-  Convocatoria: "bg-orange-100 text-orange-800",
+  movilidad: "bg-green-100 text-green-800 border-green-200",
+  investigación: "bg-purple-100 text-purple-800 border-purple-200",
+  investigacion: "bg-purple-100 text-purple-800 border-purple-200",
+  beca: "bg-blue-100 text-[#003B70] border-blue-200",
+  convocatoria: "bg-orange-100 text-orange-800 border-orange-200",
+  convocatorias: "bg-orange-100 text-orange-800 border-orange-200",
+  actividades: "bg-emerald-100 text-emerald-800 border-emerald-200",
+  eventos: "bg-amber-100 text-amber-900 border-amber-200",
 };
 
 export default function OpportunityCard({ opportunity }: Props) {
@@ -20,6 +24,11 @@ export default function OpportunityCard({ opportunity }: Props) {
     opportunity.slug === "intercambio"
       ? "/movilidad-academica"
       : `/oportunidades/${opportunity.slug}`;
+
+  // Normalizamos a arreglo para procesar 1 o varias categorías de forma consistente
+  const categories = Array.isArray(opportunity.category)
+    ? opportunity.category
+    : [opportunity.category];
 
   return (
     <Link
@@ -55,26 +64,35 @@ export default function OpportunityCard({ opportunity }: Props) {
 
         {/* Contenido */}
         <div className="flex flex-1 flex-col p-7">
-          {/* Categoría */}
-          <span
-            className={`
-              inline-flex
-              w-fit
-              rounded-full
-              px-4
-              py-1
-              text-xs
-              font-semibold
-              uppercase
-              tracking-wider
-              ${
-                categoryColors[opportunity.category] ??
-                "bg-slate-100 text-slate-700"
-              }
-            `}
-          >
-            {opportunity.category}
-          </span>
+          {/* Categorías / Badges */}
+          <div className="flex flex-wrap gap-1.5">
+            {categories.map((cat, idx) => {
+              const key = cat.trim().toLowerCase();
+              const badgeStyle =
+                categoryColors[key] ?? "bg-slate-100 text-slate-700 border-slate-200";
+
+              return (
+                <span
+                  key={idx}
+                  className={`
+                    inline-flex
+                    w-fit
+                    rounded-full
+                    px-3
+                    py-0.5
+                    text-[11px]
+                    font-bold
+                    uppercase
+                    tracking-wider
+                    border
+                    ${badgeStyle}
+                  `}
+                >
+                  {cat}
+                </span>
+              );
+            })}
+          </div>
 
           {/* Título */}
           <h3
