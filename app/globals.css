@@ -209,3 +209,13 @@ a.bg-blue-950,
 header nav a {
   color: inherit;
 }
+
+/* Ocultar barra superior y avisos de Google Translate */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-gadget-icon,
+.goog-te-banner-frame {
+  display: none !important;
+}
+body {
+  top: 0px !important;
+}

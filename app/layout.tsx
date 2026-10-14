@@ -2,9 +2,14 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Geist } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header/Header";
+import I18nProvider from "@/components/providers/I18nProvider";
+import LanguageSwitcherFloating from "@/components/ui/LanguageSwitcherFloating";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -13,10 +18,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Departamento de Internacionalización | CUL",
-  description: "Portal del Departamento de Internacionalización",
+  description: "Portal oficial del Departamento de Internacionalización - CUL Global",
 };
 
-// 🔹 ESTA ES LA CONFIGURACIÓN CLAVE PARA CELULARES
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -29,10 +33,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={cn("font-sans", geist.variable)}>
-      <body className={`${inter.variable} antialiased`}>
-        <Header />
-        {children}
+    <html
+      lang="es"
+      suppressHydrationWarning
+      className={cn("font-sans", geist.variable)}
+    >
+      <body
+        suppressHydrationWarning
+        className={`${inter.variable} antialiased selection:bg-[#D9A404]/30 selection:text-[#003B70]`}
+      >
+        <I18nProvider>
+          <Header />
+          {children}
+          <LanguageSwitcherFloating />
+        </I18nProvider>
       </body>
     </html>
   );
