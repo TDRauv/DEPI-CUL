@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { CalendarDays, ArrowRight } from "lucide-react";
 import { Opportunity } from "@/types/opportunity";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 interface Props {
   opportunity: Opportunity;
@@ -18,40 +21,33 @@ const categoryColors: Record<string, string> = {
   eventos: "bg-amber-100 text-amber-900 border-amber-200",
 };
 
+// Traducción de categorías de oportunidades
+const categoryTranslations: Record<string, { es: string; en: string }> = {
+  movilidad: { es: "Movilidad", en: "Mobility" },
+  investigación: { es: "Investigación", en: "Research" },
+  investigacion: { es: "Investigación", en: "Research" },
+  beca: { es: "Beca", en: "Scholarship" },
+  convocatoria: { es: "Convocatoria", en: "Call" },
+  convocatorias: { es: "Convocatorias", en: "Calls" },
+  actividades: { es: "Actividades", en: "Activities" },
+  eventos: { es: "Eventos", en: "Events" },
+};
+
 export default function OpportunityCard({ opportunity }: Props) {
-  // Si la oportunidad es la de Movilidad / intercambio, va directo a /movilidad-academica
+  const { lang, t } = useLanguage();
+
   const targetHref =
     opportunity.slug === "intercambio"
       ? "/movilidad-academica"
       : `/oportunidades/${opportunity.slug}`;
 
-  // Normalizamos a arreglo para procesar 1 o varias categorías de forma consistente
   const categories = Array.isArray(opportunity.category)
     ? opportunity.category
     : [opportunity.category];
 
   return (
-    <Link
-      href={targetHref}
-      className="group block h-full focus:outline-none"
-    >
-      <article
-        className="
-          flex
-          h-full
-          flex-col
-          overflow-hidden
-          rounded-3xl
-          bg-white
-          border
-          border-slate-200
-          shadow-sm
-          transition-all
-          duration-500
-          hover:-translate-y-2
-          hover:shadow-2xl
-        "
-      >
+    <Link href={targetHref} className="group block h-full focus:outline-none">
+      <article className="flex h-full flex-col overflow-hidden rounded-3xl bg-white border border-slate-200 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
         {/* Contenedor de Imagen */}
         <div className="relative aspect-16/10 w-full overflow-hidden bg-slate-900/5 flex items-center justify-center">
           <Image
@@ -70,44 +66,21 @@ export default function OpportunityCard({ opportunity }: Props) {
               const key = cat.trim().toLowerCase();
               const badgeStyle =
                 categoryColors[key] ?? "bg-slate-100 text-slate-700 border-slate-200";
+              const label = categoryTranslations[key]?.[lang] ?? cat;
 
               return (
                 <span
                   key={idx}
-                  className={`
-                    inline-flex
-                    w-fit
-                    rounded-full
-                    px-3
-                    py-0.5
-                    text-[11px]
-                    font-bold
-                    uppercase
-                    tracking-wider
-                    border
-                    ${badgeStyle}
-                  `}
+                  className={`inline-flex w-fit rounded-full px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider border ${badgeStyle}`}
                 >
-                  {cat}
+                  {label}
                 </span>
               );
             })}
           </div>
 
           {/* Título */}
-          <h3
-            className="
-              mt-5
-              line-clamp-2
-              text-2xl
-              font-bold
-              leading-tight
-              text-slate-900
-              transition-colors
-              duration-300
-              group-hover:text-[#003B70]
-            "
-          >
+          <h3 className="mt-5 line-clamp-2 text-2xl font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#003B70]">
             {opportunity.title}
           </h3>
 
@@ -119,26 +92,24 @@ export default function OpportunityCard({ opportunity }: Props) {
           {/* Fecha / Plazo de cierre */}
           <div className="mt-auto pt-6 flex items-center gap-2 text-sm text-slate-500 font-medium">
             <CalendarDays size={18} className="text-[#D9A404]" />
-            <span>{opportunity.deadline}</span>
+            <span>
+              {opportunity.deadline.toLowerCase().includes("cierre")
+                ? lang === "en"
+                  ? opportunity.deadline.replace(/Cierre:/i, "Deadline:")
+                  : opportunity.deadline
+                : opportunity.deadline}
+            </span>
           </div>
 
           {/* Botón de acción */}
-          <div
-            className="
-              mt-6
-              inline-flex
-              items-center
-              gap-2
-              font-semibold
-              text-[#003B70]
-              transition-all
-              duration-300
-              group-hover:gap-4
-            "
-          >
+          <div className="mt-6 inline-flex items-center gap-2 font-semibold text-[#003B70] transition-all duration-300 group-hover:gap-4">
             <span>
               {opportunity.slug === "intercambio"
-                ? "Ver Movilidad Académica"
+                ? lang === "en"
+                  ? "View Academic Mobility"
+                  : "Ver Movilidad Académica"
+                : lang === "en"
+                ? "View Opportunity"
                 : "Ver convocatoria"}
             </span>
             <ArrowRight size={18} />

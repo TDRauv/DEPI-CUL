@@ -1,30 +1,30 @@
+"use client";
+
 import Link from "next/link";
 import NewsGrid from "./NewsGrid";
-
 import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
 import SectionBadge from "@/components/ui/typography/SectionBadge";
 import SectionTitle from "@/components/ui/typography/SectionTitle";
 import SectionSubtitle from "@/components/ui/typography/SectionSubtitle";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 export default function News() {
+  const { t } = useLanguage();
+
   return (
     <Section className="bg-white">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
-          <SectionBadge>Noticias</SectionBadge>
+          <SectionBadge>{t("newsHome.badge")}</SectionBadge>
 
           <div className="mt-5">
-            <SectionTitle center>Últimas noticias</SectionTitle>
+            <SectionTitle center>{t("newsHome.title")}</SectionTitle>
           </div>
 
-          <SectionSubtitle center>
-            Descubre las actividades, convenios, eventos y oportunidades más
-            recientes del Departamento.
-          </SectionSubtitle>
+          <SectionSubtitle center>{t("newsHome.subtitle")}</SectionSubtitle>
         </div>
 
-        {/* Solo mostrará las 3 últimas con id más alto: 5, 4 y 3 */}
         <NewsGrid limit={3} />
 
         <div className="mt-16 flex justify-center">
@@ -42,7 +42,7 @@ export default function News() {
               hover:bg-[#002B52]
               hover:scale-105"
           >
-            Ver todas las noticias
+            {t("newsHome.viewAll")}
           </Link>
         </div>
       </Container>

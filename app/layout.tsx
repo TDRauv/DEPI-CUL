@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Geist } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header/Header";
-import I18nProvider from "@/components/providers/I18nProvider";
+import { LanguageProvider } from "@/app/context/LanguageContext";
 import LanguageSwitcherFloating from "@/components/ui/LanguageSwitcherFloating";
 import { cn } from "@/lib/utils";
 
@@ -42,11 +42,11 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${inter.variable} antialiased selection:bg-[#D9A404]/30 selection:text-[#003B70]`}
       >
-        <I18nProvider>
+        <LanguageProvider>
           <Header />
           {children}
           <LanguageSwitcherFloating />
-        </I18nProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

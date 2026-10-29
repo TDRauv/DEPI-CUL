@@ -5,8 +5,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Container from "@/components/ui/Container";
 import useScroll from "@/hooks/useScroll";
+import { useLanguage } from "@/app/context/LanguageContext";
 
-import DesktopMenu, { menu } from "./DesktopMenu";
+import DesktopMenu, { menuItems } from "./DesktopMenu";
 import HeaderTop from "./HeaderTop";
 import Logo from "./Logo";
 
@@ -14,6 +15,7 @@ export default function Header() {
   const isScrolled = useScroll();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { t } = useLanguage();
 
   return (
     <header
@@ -38,12 +40,10 @@ export default function Header() {
         <div className="flex h-20 sm:h-24 items-center justify-between">
           <Logo />
 
-          {/* Menú para pantallas grandes */}
           <div className="hidden lg:block ml-12">
             <DesktopMenu />
           </div>
 
-          {/* Botón hamburguesa para celulares y tablets */}
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -63,16 +63,15 @@ export default function Header() {
         </div>
       </Container>
 
-      {/* Menú desplegable móvil */}
       {isMobileMenuOpen && (
         <div className="lg:hidden border-t border-slate-200 bg-white/98 backdrop-blur-md px-6 py-4 shadow-xl">
           <nav className="flex flex-col space-y-1">
-            {menu.map((item) => {
+            {menuItems.map((item) => {
               const isActive = pathname === item.href;
 
               return (
                 <Link
-                  key={item.title}
+                  key={item.href}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`
@@ -84,7 +83,7 @@ export default function Header() {
                     }
                   `}
                 >
-                  <span>{item.title}</span>
+                  <span>{t(item.key)}</span>
                   {isActive && (
                     <span className="w-2 h-2 rounded-full bg-[#D9A404]" />
                   )}

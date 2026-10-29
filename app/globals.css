@@ -210,12 +210,34 @@ header nav a {
   color: inherit;
 }
 
-/* Ocultar barra superior y avisos de Google Translate */
-.goog-te-banner-frame.skiptranslate,
-.goog-te-gadget-icon,
-.goog-te-banner-frame {
+/* ========================================================
+   OCULTAR BARRA SUPERIOR, TOOLTIPS Y BANNER DE GOOGLE TRANSLATE
+   ======================================================== */
+
+/* Ocultar el iframe del banner superior */
+.skiptranslate,
+.goog-te-banner-frame,
+iframe.goog-te-banner-frame,
+#goog-gt-tt,
+.goog-tooltip,
+.goog-tooltip:hover {
   display: none !important;
+  visibility: hidden !important;
 }
+
+/* Evitar que Google Translate baje el body 40px */
 body {
   top: 0px !important;
+  position: static !important;
+}
+
+/* Ocultar el widget y elementos generados */
+#google_translate_element {
+  display: none !important;
+}
+
+/* Evitar el resaltado azul claro de texto traducido al pasar el cursor */
+.goog-text-highlight {
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
