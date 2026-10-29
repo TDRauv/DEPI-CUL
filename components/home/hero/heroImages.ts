@@ -5,5 +5,5 @@ const heroImages = [
   "/hero/hero5.jpg",
   "/hero/hero6.jpeg",
 ];
-
+  
 export default heroImages;
