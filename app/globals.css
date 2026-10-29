@@ -190,8 +190,7 @@ img {
   animation-play-state: paused;
 }
 
-/* Regla específica para botones con fondo azul oscuro:
-   Afecta únicamente a botones o píldoras con fondo azul sin alterar la navegación ni textos regulares */
+/* Regla para botones con fondo azul oscuro */
 button.bg-\[\#003B70\],
 button.bg-\[\#003b70\],
 button.bg-blue-900,
@@ -210,3 +209,30 @@ header nav a {
   color: inherit;
 }
 
+/* ========================================================
+   OCULTAR BARRA SUPERIOR, TOOLTIPS Y BANNER DE GOOGLE TRANSLATE
+   ======================================================== */
+
+.skiptranslate,
+.goog-te-banner-frame,
+iframe.goog-te-banner-frame,
+#goog-gt-tt,
+.goog-tooltip,
+.goog-tooltip:hover {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+body {
+  top: 0px !important;
+  position: static !important;
+}
+
+#google_translate_element {
+  display: none !important;
+}
+
+.goog-text-highlight {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}

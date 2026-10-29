@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -17,146 +18,109 @@ import {
   Sprout,
   ArrowLeft,
 } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Ecosistema CUL Global | DEPI - CUL",
-  description:
-    "Modelo Institucional de Internacionalización Integral de la Corporación Universitaria Latinoamericana.",
-};
-
-const hitosGobernanza = [
-  {
-    periodo: "2014",
-    hito: "HITO 1",
-    titulo: "Creación del Departamento de Internacionalización",
-    detalle: "Acuerdo 032 de 2014",
-    subtexto: "Nace una estructura administrativa formal.",
-    icon: Building2,
-    color: "bg-[#003B70]",
-  },
-  {
-    periodo: "2014 – 2021",
-    hito: "HITO 2",
-    titulo: "Consolidación de la Gestión Institucional de la Internacionalización",
-    detalle: "De una estructura administrativa hacia una gestión estratégica y transversal.",
-    subtexto: "",
-    icon: TrendingUp,
-    color: "bg-[#003B70]",
-  },
-  {
-    periodo: "2021",
-    hito: "HITO 2",
-    titulo: "Política Institucional de Internacionalización",
-    detalle: "Acuerdo 117-21",
-    subtexto: "Internacionalización como proceso estratégico y transversal. 6 ejes estratégicos.",
-    icon: FileCheck,
-    color: "bg-[#003B70]",
-  },
-  {
-    periodo: "2022 – 2028",
-    hito: "HITO 3",
-    titulo: "Incorporación de la Internacionalización como eje estratégico del PDI",
-    detalle: "Plan de Desarrollo Institucional 2022-2028",
-    subtexto: "La internacionalización integrada a la planeación institucional.",
-    icon: Target,
-    color: "bg-[#003B70]",
-  },
-  {
-    periodo: "2022 – 2026",
-    hito: "HITO 4",
-    titulo: "Consolidación de la #RutaCULGlobal2028",
-    detalle: "Estrategias, programas, proyectos, alianzas, indicadores y seguimiento.",
-    subtexto: "",
-    icon: Globe2,
-    color: "bg-[#003B70]",
-  },
-  {
-    periodo: "2026 →",
-    hito: "SIGUIENTE ETAPA",
-    titulo: "Ecosistema CUL Global®",
-    detalle: "Evolución hacia un modelo institucional integral y articulado.",
-    subtexto: "",
-    icon: Share2,
-    color: "bg-[#D9A404]",
-  },
-];
-
-const lineasAccion = [
-  {
-    num: "01",
-    titulo: "Gestión de la internacionalización.",
-    icon: Building2,
-  },
-  {
-    num: "02",
-    titulo: "Internacionalización en Casa (CULGlobal).",
-    icon: Home,
-  },
-  {
-    num: "03",
-    titulo: "Movilidad (Experiencias con propósito).",
-    icon: Plane,
-  },
-  {
-    num: "04",
-    titulo: "Currículo Global.",
-    icon: BookOpen,
-  },
-  {
-    num: "05",
-    titulo: "Cooperación y Relacionamiento Internacional.",
-    icon: Handshake,
-  },
-  {
-    num: "06",
-    titulo: "Docencia Global.",
-    icon: Users,
-  },
-  {
-    num: "07",
-    titulo: "Internacionalización de la Investigación.",
-    icon: FlaskConical,
-  },
-  {
-    num: "08",
-    titulo: "Internacionalización con Impacto Territorial.",
-    icon: Sprout,
-  },
-];
-
-const gestionAreasFlyer = [
-  { title: "Alianzas estratégicas", color: "bg-[#003B70]" },
-  { title: "Convenios", color: "bg-[#D9A404]" },
-  { title: "Difusión de oportunidades, convocatorias y becas", color: "bg-[#003B70]" },
-  { title: "Internacionalización en casa", color: "bg-[#D9A404]" },
-  { title: "Programas INTER", color: "bg-[#003B70]" },
-  { title: "Internacionalización articulada", color: "bg-[#D9A404]" },
-  { title: "Movilidad académica", color: "bg-[#003B70]" },
-  { title: "Visibilidad nacional e internacional", color: "bg-[#D9A404]" },
-  { title: "Global CLUB", color: "bg-[#003B70]" },
-  { title: "CGH - CUL", color: "bg-[#D9A404]" },
-];
+import { useLanguage } from "@/app/context/LanguageContext";
 
 export default function EcosistemaPage() {
+  const { lang } = useLanguage();
+  const isEn = lang === "en";
+
+  const hitosGobernanza = [
+    {
+      periodo: "2014",
+      hito: isEn ? "MILESTONE 1" : "HITO 1",
+      titulo: isEn ? "Creation of the Internationalization Department" : "Creación del Departamento de Internacionalización",
+      detalle: isEn ? "Agreement 032 of 2014" : "Acuerdo 032 de 2014",
+      subtexto: isEn ? "A formal administrative structure is established." : "Nace una estructura administrativa formal.",
+      icon: Building2,
+      color: "bg-[#003B70]",
+    },
+    {
+      periodo: "2014 – 2021",
+      hito: isEn ? "MILESTONE 2" : "HITO 2",
+      titulo: isEn ? "Consolidation of Institutional Internationalization Management" : "Consolidación de la Gestión Institucional de la Internacionalización",
+      detalle: isEn ? "From an administrative unit to strategic and transversal management." : "De una estructura administrativa hacia una gestión estratégica y transversal.",
+      subtexto: "",
+      icon: TrendingUp,
+      color: "bg-[#003B70]",
+    },
+    {
+      periodo: "2021",
+      hito: isEn ? "MILESTONE 3" : "HITO 3",
+      titulo: isEn ? "Institutional Internationalization Policy" : "Política Institucional de Internacionalización",
+      detalle: isEn ? "Agreement 117-21" : "Acuerdo 117-21",
+      subtexto: isEn ? "Internationalization as a strategic and transversal process. 6 strategic axes." : "Internacionalización como proceso estratégico y transversal. 6 ejes estratégicos.",
+      icon: FileCheck,
+      color: "bg-[#003B70]",
+    },
+    {
+      periodo: "2022 – 2028",
+      hito: isEn ? "MILESTONE 4" : "HITO 4",
+      titulo: isEn ? "Integration of Internationalization as a Strategic Axis in the PDI" : "Incorporación de la Internacionalización como eje estratégico del PDI",
+      detalle: isEn ? "Institutional Development Plan 2022-2028" : "Plan de Desarrollo Institucional 2022-2028",
+      subtexto: isEn ? "Internationalization embedded into institutional planning." : "La internacionalización integrada a la planeación institucional.",
+      icon: Target,
+      color: "bg-[#003B70]",
+    },
+    {
+      periodo: "2022 – 2026",
+      hito: isEn ? "MILESTONE 5" : "HITO 5",
+      titulo: isEn ? "Consolidation of #RutaCULGlobal2028" : "Consolidación de la #RutaCULGlobal2028",
+      detalle: isEn ? "Strategies, programs, projects, alliances, KPIs, and monitoring." : "Estrategias, programas, proyectos, alianzas, indicadores y seguimiento.",
+      subtexto: "",
+      icon: Globe2,
+      color: "bg-[#003B70]",
+    },
+    {
+      periodo: "2026 →",
+      hito: isEn ? "NEXT STAGE" : "SIGUIENTE ETAPA",
+      titulo: isEn ? "CUL Global Ecosystem®" : "Ecosistema CUL Global®",
+      detalle: isEn ? "Evolution into an integrated and articulated institutional model." : "Evolución hacia un modelo institucional integral y articulado.",
+      subtexto: "",
+      icon: Share2,
+      color: "bg-[#D9A404]",
+    },
+  ];
+
+  const lineasAccion = [
+    { num: "01", titulo: isEn ? "Internationalization Management." : "Gestión de la internacionalización.", icon: Building2 },
+    { num: "02", titulo: isEn ? "Internationalization at Home (CULGlobal)." : "Internacionalización en Casa (CULGlobal).", icon: Home },
+    { num: "03", titulo: isEn ? "Mobility (Purpose-driven experiences)." : "Movilidad (Experiencias con propósito).", icon: Plane },
+    { num: "04", titulo: isEn ? "Global Curriculum." : "Currículo Global.", icon: BookOpen },
+    { num: "05", titulo: isEn ? "International Cooperation & Networking." : "Cooperación y Relacionamiento Internacional.", icon: Handshake },
+    { num: "06", titulo: isEn ? "Global Teaching & Faculty." : "Docencia Global.", icon: Users },
+    { num: "07", titulo: isEn ? "Research Internationalization." : "Internacionalización de la Investigación.", icon: FlaskConical },
+    { num: "08", titulo: isEn ? "Internationalization with Territorial Impact." : "Internacionalización con Impacto Territorial.", icon: Sprout },
+  ];
+
+  const gestionAreasFlyer = [
+    { title: isEn ? "Strategic Alliances" : "Alianzas estratégicas", color: "bg-[#003B70]" },
+    { title: isEn ? "Agreements" : "Convenios", color: "bg-[#D9A404]" },
+    { title: isEn ? "Dissemination of Opportunities & Scholarships" : "Difusión de oportunidades, convocatorias y becas", color: "bg-[#003B70]" },
+    { title: isEn ? "Internationalization at Home" : "Internacionalización en casa", color: "bg-[#D9A404]" },
+    { title: isEn ? "INTER Programs" : "Programas INTER", color: "bg-[#003B70]" },
+    { title: isEn ? "Articulated Internationalization" : "Internacionalización articulada", color: "bg-[#D9A404]" },
+    { title: isEn ? "Academic Mobility" : "Movilidad académica", color: "bg-[#003B70]" },
+    { title: isEn ? "National & Global Visibility" : "Visibilidad nacional e internacional", color: "bg-[#D9A404]" },
+    { title: "Global CLUB", color: "bg-[#003B70]" },
+    { title: "CGH - CUL", color: "bg-[#D9A404]" },
+  ];
+
   return (
     <main className="min-h-screen bg-slate-50 pt-28 pb-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-16">
-        
-        {/* Enlace para volver */}
         <div>
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-sm font-semibold text-[#003B70] hover:text-[#D9A404] transition-colors group"
           >
             <ArrowLeft className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-1" />
-            Volver al Inicio
+            {isEn ? "Back to Home" : "Volver al Inicio"}
           </Link>
         </div>
 
-        {/* Cabecera Principal */}
         <div className="text-left max-w-4xl">
           <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase bg-[#003B70]/10 text-[#003B70] mb-4">
-            DEPI · Departamento de Internacionalización
+            {isEn ? "DEPI · Department of Internationalization" : "DEPI · Departamento de Internacionalización"}
           </span>
 
           <h1 className="text-4xl font-extrabold tracking-tight text-[#003B70] sm:text-5xl uppercase">
@@ -164,50 +128,48 @@ export default function EcosistemaPage() {
           </h1>
 
           <p className="mt-2 text-xl font-bold text-[#D9A404]">
-            Modelo Institucional de Internacionalización Integral de la Corporación Universitaria Latinoamericana
+            {isEn
+              ? "Comprehensive Institutional Internationalization Model of Corporación Universitaria Latinoamericana"
+              : "Modelo Institucional de Internacionalización Integral de la Corporación Universitaria Latinoamericana"}
           </p>
 
           <p className="mt-2 text-lg italic text-slate-700 font-medium">
-            “Transformando vidas, conectando territorios desde la ciudadanía global”
+            {isEn
+              ? "“Transforming lives, connecting territories through global citizenship”"
+              : "“Transformando vidas, conectando territorios desde la ciudadanía global”"}
           </p>
 
           <p className="mt-6 text-gray-700 text-base sm:text-lg leading-relaxed font-normal">
-            Departamento que se encarga de impulsar los procesos de internacionalización Institucional, 
-            asesorando y contribuyendo a la formación de competencias internacionales de sus estudiantes, 
-            promoviendo la participación de los académicos y funcionarios administrativos en los programas 
-            establecidos, el desarrollo y fortalecimiento de programas académicos conjuntos, la visibilidad 
-            y el reconocimiento a través de la cooperación interinstitucional regional, nacional y mundial.
+            {isEn
+              ? "Department responsible for promoting institutional internationalization processes, advising and contributing to the global competency development of students, encouraging faculty and staff participation in established programs, and expanding inter-institutional cooperation worldwide."
+              : "Departamento que se encarga de impulsar los procesos de internacionalización Institucional, asesorando y contribuyendo a la formación de competencias internacionales de sus estudiantes, promoviendo la participación de los académicos y funcionarios administrativos en los programas establecidos, el desarrollo y fortalecimiento de programas académicos conjuntos, la visibilidad y el reconocimiento a través de la cooperación interinstitucional regional, nacional y mundial."}
           </p>
-          <p className="mt-6 text-gray-700 text-base sm:text-lg leading-relaxed font-normal">
-            Las estrategias del Ecosistema CUL están dirigidas a los estudiantes de las diferentes modalidades de la institucion,
-            incluyendo los programas presenciales y virtuales, a los docentes, investigadores y administrativos
-            garantizando oportunidades de internacionalización en casa, movilidad virtual, movilidad presencial, cooperación
-            multilingüismo e interculturalidad.
-          </p>
-
-
         </div>
 
-        {/* 1. IDENTIDAD Y FUNDAMENTOS */}
+        {/* 1. IDENTIDAD */}
         <section className="bg-white rounded-3xl p-8 lg:p-10 shadow-sm border border-slate-200/80">
           <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#003B70] text-white text-sm font-bold tracking-wide mb-6">
-            1. IDENTIDAD Y FUNDAMENTOS DEL ECOSISTEMA CUL GLOBAL
+            {isEn ? "1. IDENTITY & FOUNDATIONS OF THE CUL GLOBAL ECOSYSTEM" : "1. IDENTIDAD Y FUNDAMENTOS DEL ECOSISTEMA CUL GLOBAL"}
           </div>
 
           <div className="space-y-4 text-slate-700 text-base sm:text-lg leading-relaxed">
             <p>
-              El Ecosistema CUL Global trasciende la ejecución de programas independientes y constituye una arquitectura institucional que articula políticas, estrategias, procesos, proyectos y actores alrededor de una visión compartida de internacionalización integral.
+              {isEn
+                ? "The CUL Global Ecosystem transcends independent programs, constituting an institutional architecture that articulates policies, strategies, processes, and stakeholders around a shared vision of comprehensive internationalization."
+                : "El Ecosistema CUL Global trasciende la ejecución de programas independientes y constituye una arquitectura institucional que articula políticas, estrategias, procesos, proyectos y actores alrededor de una visión compartida de internacionalización integral."}
             </p>
             <p>
-              Su implementación se desarrolla mediante la <strong>#RutaCULGlobal2028</strong>, alineada con la Política Institucional de Internacionalización y el Plan de Desarrollo Institucional, garantizando la planeación, ejecución, seguimiento y mejora continua de las acciones institucionales en materia de internacionalización.
+              {isEn
+                ? "Implemented via #RutaCULGlobal2028 and aligned with the Institutional Development Plan, ensuring planning, execution, and continuous improvement across all areas."
+                : "Su implementación se desarrolla mediante la #RutaCULGlobal2028, alineada con la Política Institucional de Internacionalización y el Plan de Desarrollo Institucional, garantizando la planeación, ejecución, seguimiento y mejora continua de las acciones institucionales en materia de internacionalización."}
             </p>
           </div>
         </section>
 
-        {/* 2. GOBERNANZA DEL ECOSISTEMA CUL GLOBAL */}
+        {/* 2. GOBERNANZA */}
         <section className="bg-white rounded-3xl p-8 lg:p-10 shadow-sm border border-slate-200/80">
           <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#003B70] text-white text-sm font-bold tracking-wide mb-10">
-            2. GOBERNANZA DEL ECOSISTEMA CUL GLOBAL
+            {isEn ? "2. GOVERNANCE OF THE CUL GLOBAL ECOSYSTEM" : "2. GOBERNANZA DEL ECOSISTEMA CUL GLOBAL"}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 relative">
@@ -223,7 +185,7 @@ export default function EcosistemaPage() {
                     <IconComp className="w-6 h-6" />
                   </div>
 
-                  <span className={`text-xs font-bold uppercase tracking-wider mb-2 ${item.color === 'bg-[#D9A404]' ? 'text-[#D9A404]' : 'text-[#003B70]'}`}>
+                  <span className={`text-xs font-bold uppercase tracking-wider mb-2 ${item.color === "bg-[#D9A404]" ? "text-[#D9A404]" : "text-[#003B70]"}`}>
                     {item.hito}
                   </span>
 
@@ -236,28 +198,16 @@ export default function EcosistemaPage() {
                       {item.detalle}
                     </p>
                   )}
-
-                  {item.subtexto && (
-                    <p className="text-[10px] text-slate-500 mt-1 leading-tight">
-                      {item.subtexto}
-                    </p>
-                  )}
                 </div>
               );
             })}
           </div>
-
-          <div className="mt-10 rounded-2xl border-2 border-orange-200 bg-orange-50/50 py-3.5 px-6 text-center">
-            <p className="text-xs sm:text-sm font-extrabold uppercase tracking-wide text-[#003B70]">
-              De una unidad administrativa a una arquitectura institucional de internacionalización
-            </p>
-          </div>
         </section>
 
-        {/* 3. LÍNEAS DE ACCIÓN / EJES DE TRABAJO */}
+        {/* 3. LÍNEAS DE ACCIÓN */}
         <section className="bg-white rounded-3xl p-8 lg:p-10 shadow-sm border border-slate-200/80">
           <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#003B70] text-white text-sm font-bold tracking-wide mb-10">
-            3. LÍNEAS DE ACCIÓN / EJES DE TRABAJO DEL DEPI
+            {isEn ? "3. LINES OF ACTION / STRATEGIC AXES OF DEPI" : "3. LÍNEAS DE ACCIÓN / EJES DE TRABAJO DEL DEPI"}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -281,39 +231,11 @@ export default function EcosistemaPage() {
               );
             })}
           </div>
-
-          <div className="mt-10 rounded-3xl bg-[#003B70] text-white p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full border-2 border-[#D9A404] flex items-center justify-center shrink-0">
-                <Globe2 className="w-6 h-6 text-[#D9A404]" />
-              </div>
-              <div>
-                <h4 className="text-sm sm:text-base font-extrabold tracking-wide uppercase">
-                  El Ecosistema CUL Global® es la arquitectura que hace posible una internacionalización integral, sostenible y con impacto.
-                </h4>
-                <p className="text-xs sm:text-sm font-semibold text-[#D9A404] mt-1">
-                  Transformamos vidas. Conectamos territorios. Construimos ciudadanía global.
-                </p>
-              </div>
-            </div>
-
-            <div className="shrink-0 flex items-center gap-3">
-              <span className="text-xs text-blue-200">Contacto:</span>
-              <a
-                href="mailto:internacionalizacion@ul.edu.co"
-                className="text-xs font-bold underline hover:text-[#D9A404] transition-colors"
-              >
-                internacionalizacion@ul.edu.co
-              </a>
-            </div>
-          </div>
         </section>
 
-        {/* 4. FLYER INSTITUCIONAL Y RED DE GESTIÓN (AL FINAL) */}
+        {/* 4. FLYER INSTITUCIONAL */}
         <section className="bg-white rounded-3xl p-8 lg:p-10 shadow-sm border border-slate-200/80">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            {/* Imagen del Flyer */}
             <div className="lg:col-span-5 flex justify-center">
               <div className="relative w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-white group">
                 <Image
@@ -327,17 +249,18 @@ export default function EcosistemaPage() {
               </div>
             </div>
 
-            {/* Listado de los 10 ejes del flyer y enlace web */}
             <div className="lg:col-span-7 space-y-6">
               <div>
                 <span className="inline-block px-4 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-[#D9A404]/10 text-[#D9A404] mb-2">
-                  Gestión Operativa
+                  {isEn ? "Operational Management" : "Gestión Operativa"}
                 </span>
                 <h2 className="text-2xl font-bold text-[#003B70]">
-                  Áreas de Gestión de la Internacionalización
+                  {isEn ? "Internationalization Management Areas" : "Áreas de Gestión de la Internacionalización"}
                 </h2>
                 <p className="text-slate-600 text-sm mt-2">
-                  Articulación directa para el apoyo integral a la comunidad universitaria:
+                  {isEn
+                    ? "Direct operational areas for comprehensive support to the university community:"
+                    : "Articulación directa para el apoyo integral a la comunidad universitaria:"}
                 </p>
               </div>
 
@@ -354,34 +277,9 @@ export default function EcosistemaPage() {
                   </div>
                 ))}
               </div>
-
-              {/* Tarjeta de contacto oficial */}
-              <div className="p-5 rounded-2xl bg-[#003B70] text-white flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-md">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-blue-200">
-                    Canales de Contacto Directo
-                  </p>
-                  <a
-                    href="mailto:internacionalizacion@ul.edu.co"
-                    className="text-sm font-bold hover:underline block mt-1"
-                  >
-                    internacionalizacion@ul.edu.co
-                  </a>
-                </div>
-                <a
-                  href="https://www.ul.edu.co"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-5 py-2 rounded-lg bg-[#D9A404] text-slate-900 font-bold hover:bg-yellow-400 transition-colors text-xs shadow"
-                >
-                  www.ul.edu.co
-                </a>
-              </div>
             </div>
-
           </div>
         </section>
-
       </div>
     </main>
   );

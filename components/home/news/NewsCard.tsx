@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { CalendarDays, ArrowRight } from "lucide-react";
 import { News } from "@/types/news";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 interface Props {
   news: News;
@@ -16,29 +19,24 @@ const categoryColors: Record<string, string> = {
   Convocatoria: "bg-red-100 text-red-700",
 };
 
+const categoryTranslations: Record<string, { es: string; en: string }> = {
+  Relacionamiento: { es: "Relacionamiento", en: "Networking & Alliances" },
+  Convenios: { es: "Convenios", en: "Agreements" },
+  Investigación: { es: "Investigación", en: "Research" },
+  Movilidad: { es: "Movilidad", en: "Mobility" },
+  Eventos: { es: "Eventos", en: "Events" },
+  Convocatoria: { es: "Convocatoria", en: "Call" },
+};
+
 export default function NewsCard({ news }: Props) {
+  const { lang } = useLanguage();
+
   return (
     <Link
       href={`/noticias/${news.slug}`}
       className="group block h-full focus:outline-none"
     >
-      <article
-        className="
-          flex
-          h-full
-          flex-col
-          overflow-hidden
-          rounded-3xl
-          bg-white
-          border
-          border-slate-200
-          shadow-sm
-          transition-all
-          duration-500
-          hover:-translate-y-2
-          hover:shadow-2xl
-        "
-      >
+      <article className="flex h-full flex-col overflow-hidden rounded-3xl bg-white border border-slate-200 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
         {/* Imagen */}
         <div className="relative aspect-16/10 overflow-hidden bg-slate-100">
           <Image
@@ -54,36 +52,15 @@ export default function NewsCard({ news }: Props) {
         <div className="flex flex-1 flex-col p-7">
           {/* Categoría */}
           <span
-            className={`
-              inline-flex
-              w-fit
-              rounded-full
-              px-4
-              py-1
-              text-xs
-              font-semibold
-              uppercase
-              tracking-wider
-              ${categoryColors[news.category] ?? "bg-slate-100 text-slate-700"}
-            `}
+            className={`inline-flex w-fit rounded-full px-4 py-1 text-xs font-semibold uppercase tracking-wider ${
+              categoryColors[news.category] ?? "bg-slate-100 text-slate-700"
+            }`}
           >
-            {news.category}
+            {categoryTranslations[news.category]?.[lang] ?? news.category}
           </span>
 
           {/* Título */}
-          <h3
-            className="
-              mt-5
-              line-clamp-2
-              text-2xl
-              font-bold
-              leading-tight
-              text-slate-900
-              transition-colors
-              duration-300
-              group-hover:text-[#003B70]
-            "
-          >
+          <h3 className="mt-5 line-clamp-2 text-2xl font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#003B70]">
             {news.title}
           </h3>
 
@@ -98,21 +75,9 @@ export default function NewsCard({ news }: Props) {
             <span>{news.date}</span>
           </div>
 
-          {/* Indicador de acción */}
-          <div
-            className="
-              mt-6
-              inline-flex
-              items-center
-              gap-2
-              font-semibold
-              text-[#003B70]
-              transition-all
-              duration-300
-              group-hover:gap-4
-            "
-          >
-            <span>Leer noticia</span>
+          {/* Botón */}
+          <div className="mt-6 inline-flex items-center gap-2 font-semibold text-[#003B70] transition-all duration-300 group-hover:gap-4">
+            <span>{lang === "en" ? "Read full news" : "Leer noticia"}</span>
             <ArrowRight size={18} />
           </div>
         </div>

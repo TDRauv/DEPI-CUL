@@ -2,53 +2,30 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useLanguage } from "@/app/context/LanguageContext";
 
-export const menu = [
-  {
-    title: "Inicio",
-    href: "/",
-  },
-  {
-    title: "Ecosistema CUL Global",
-    href: "/ecosistema-cul-global",
-  },
-  // {
-  //  title: "Movilidad Académica",
-  //  href: "/movilidad-academica",
-  // },
-  //{
-  //  title: "Relacionamiento",
-  //  href: "/relacionamiento",
-  //},
-  {
-    title: "CUL Global Virtual",
-    href: "/cul-global-virtual",
-  },  
-  {
-    title: "Internacionalizacion Articulada",
-    href: "/internacionalizacion-articulada", 
-  },
-  {
-    title: "Contacto e Interacción",
-    href: "/contacto-e-interaccion",
-  },
-  {
-    title: "#ImpactoGlobalCUL",
-    href: "/impacto-global-cul",
-  },
+export const menuItems = [
+  { key: "nav.home", href: "/" },
+  { key: "nav.ecosystem", href: "/ecosistema-cul-global" },
+  { key: "nav.virtual", href: "/cul-global-virtual" },
+  { key: "nav.articulated", href: "/internacionalizacion-articulada" },
+  { key: "nav.contact", href: "/contacto-e-interaccion" },
+  { key: "nav.globalImpact", href: "/impacto-global-cul" },
 ];
 
 export default function DesktopMenu() {
   const pathname = usePathname();
+  const { t } = useLanguage();
 
   return (
     <nav className="hidden lg:flex items-center gap-6">
-      {menu.map((item) => {
+      {menuItems.map((item) => {
         const isActive = pathname === item.href;
+        const title = t(item.key);
 
         return (
           <Link
-            key={item.title}
+            key={item.href}
             href={item.href}
             className={`
               relative
@@ -61,9 +38,8 @@ export default function DesktopMenu() {
               ${isActive ? "text-[#003B70]" : "text-slate-700 hover:text-[#003B70]"}
             `}
           >
-            {item.title}
+            {title}
 
-            {/* Línea indicadora activa o en hover */}
             <span
               className={`
                 absolute

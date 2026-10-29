@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
@@ -5,25 +7,26 @@ import SectionBadge from "@/components/ui/typography/SectionBadge";
 import SectionTitle from "@/components/ui/typography/SectionTitle";
 import SectionSubtitle from "@/components/ui/typography/SectionSubtitle";
 import OpportunitiesGrid from "./OpportunitiesGrid";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 export default function Opportunities() {
+  const { t } = useLanguage();
+
   return (
     <Section className="bg-slate-50">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
-          <SectionBadge>Oportunidades Globales</SectionBadge>
+          <SectionBadge>{t("opportunitiesHome.badge")}</SectionBadge>
 
           <div className="mt-5">
-            <SectionTitle center>Oportunidades y Convocatorias</SectionTitle>
+            <SectionTitle center>{t("opportunitiesHome.title")}</SectionTitle>
           </div>
 
           <SectionSubtitle center>
-            Descubre convocatorias, becas, programas, estancias académicas, movilidad nacional e internacional
-            y otras oportunidades compartidas por el DEPI para fortalecer tu experiencia global.
+            {t("opportunitiesHome.subtitle")}
           </SectionSubtitle>
         </div>
 
-        {/* Muestra las oportunidades usando el Grid */}
         <OpportunitiesGrid />
 
         <div className="mt-16 flex justify-center">
@@ -41,7 +44,7 @@ export default function Opportunities() {
               hover:bg-[#002B52]
               hover:scale-105"
           >
-            Ver todas las oportunidades
+            {t("opportunitiesHome.viewAll")}
           </Link>
         </div>
       </Container>

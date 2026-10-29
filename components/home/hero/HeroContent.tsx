@@ -1,15 +1,20 @@
+"use client";
+
 import Link from "next/link";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 export default function HeroContent() {
+  const { t } = useLanguage();
+
   return (
     <div className="flex h-full items-center justify-center">
       <div className="max-w-6xl px-8 text-center text-white">
         <h1 className="text-5xl font-bold lg:text-7xl">
-          Departamento de Internacionalización
+          {t("hero.title")}
         </h1>
 
         <p className="mx-auto mt-8 max-w-3xl text-xl leading-9 lg:text-2xl">
-          Te invitamos a transformarte en un CIUDADANO GLOBAL
+          {t("hero.subtitle")}
         </p>
 
         <Link
@@ -29,10 +34,9 @@ export default function HeroContent() {
             pointer-events-auto
           "
         >
-          Conoce el DEPI
+          {t("hero.cta")}
         </Link>
       </div>
     </div>
   );
 }
-
