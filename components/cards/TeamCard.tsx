@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import { Mail } from "lucide-react";
 import { TeamMember } from "@/data/contact";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 interface Props {
   member: TeamMember;
@@ -8,6 +11,14 @@ interface Props {
 }
 
 export default function TeamCard({ member, featured = false }: Props) {
+  const { lang } = useLanguage();
+
+  const role = typeof member.role === "object" ? member.role[lang] : member.role;
+  const subrole =
+    member.subrole && typeof member.subrole === "object"
+      ? member.subrole[lang]
+      : member.subrole;
+
   return (
     <div
       className={`
@@ -22,25 +33,18 @@ export default function TeamCard({ member, featured = false }: Props) {
           ${featured ? "w-36 h-36 sm:w-44 sm:h-44" : "w-28 h-28 sm:w-32 sm:h-32"}
         `}
       >
-        <Image
-          src={member.image}
-          alt={member.name}
-          fill
-          className="object-cover"
-        />
+        <Image src={member.image} alt={member.name} fill className="object-cover" />
       </div>
 
       <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
         {member.name}
       </h3>
 
-      <p className="mt-1 text-xs sm:text-sm font-semibold text-[#003B70]">
-        {member.role}
-      </p>
+      <p className="mt-1 text-xs sm:text-sm font-semibold text-[#003B70]">{role}</p>
 
-      {member.subrole && (
+      {subrole && (
         <p className="mt-1 text-[11px] text-slate-500 font-medium italic max-w-xs">
-          {member.subrole}
+          {subrole}
         </p>
       )}
 

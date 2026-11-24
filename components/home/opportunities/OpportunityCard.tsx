@@ -3,11 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CalendarDays, ArrowRight } from "lucide-react";
-import { Opportunity } from "@/types/opportunity";
+import { LocalizedOpportunity } from "@/data/opportunities";
 import { useLanguage } from "@/app/context/LanguageContext";
 
 interface Props {
-  opportunity: Opportunity;
+  opportunity: LocalizedOpportunity;
 }
 
 const categoryColors: Record<string, string> = {
@@ -21,7 +21,6 @@ const categoryColors: Record<string, string> = {
   eventos: "bg-amber-100 text-amber-900 border-amber-200",
 };
 
-// Traducción de categorías de oportunidades
 const categoryTranslations: Record<string, { es: string; en: string }> = {
   movilidad: { es: "Movilidad", en: "Mobility" },
   investigación: { es: "Investigación", en: "Research" },
@@ -34,7 +33,7 @@ const categoryTranslations: Record<string, { es: string; en: string }> = {
 };
 
 export default function OpportunityCard({ opportunity }: Props) {
-  const { lang, t } = useLanguage();
+  const { lang } = useLanguage();
 
   const targetHref =
     opportunity.slug === "intercambio"
@@ -45,6 +44,19 @@ export default function OpportunityCard({ opportunity }: Props) {
     ? opportunity.category
     : [opportunity.category];
 
+  const title =
+    typeof opportunity.title === "object"
+      ? opportunity.title[lang]
+      : opportunity.title;
+  const summary =
+    typeof opportunity.summary === "object"
+      ? opportunity.summary[lang]
+      : opportunity.summary;
+  const deadline =
+    typeof opportunity.deadline === "object"
+      ? opportunity.deadline[lang]
+      : opportunity.deadline;
+
   return (
     <Link href={targetHref} className="group block h-full focus:outline-none">
       <article className="flex h-full flex-col overflow-hidden rounded-3xl bg-white border border-slate-200 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
@@ -52,7 +64,7 @@ export default function OpportunityCard({ opportunity }: Props) {
         <div className="relative aspect-16/10 w-full overflow-hidden bg-slate-900/5 flex items-center justify-center">
           <Image
             src={opportunity.image}
-            alt={opportunity.title}
+            alt={title}
             fill
             className="object-contain p-2 transition-transform duration-700 group-hover:scale-105"
           />
@@ -81,24 +93,18 @@ export default function OpportunityCard({ opportunity }: Props) {
 
           {/* Título */}
           <h3 className="mt-5 line-clamp-2 text-2xl font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-[#003B70]">
-            {opportunity.title}
+            {title}
           </h3>
 
           {/* Resumen */}
           <p className="mt-4 line-clamp-3 text-slate-600 leading-7">
-            {opportunity.summary}
+            {summary}
           </p>
 
           {/* Fecha / Plazo de cierre */}
           <div className="mt-auto pt-6 flex items-center gap-2 text-sm text-slate-500 font-medium">
             <CalendarDays size={18} className="text-[#D9A404]" />
-            <span>
-              {opportunity.deadline.toLowerCase().includes("cierre")
-                ? lang === "en"
-                  ? opportunity.deadline.replace(/Cierre:/i, "Deadline:")
-                  : opportunity.deadline
-                : opportunity.deadline}
-            </span>
+            <span>{deadline}</span>
           </div>
 
           {/* Botón de acción */}

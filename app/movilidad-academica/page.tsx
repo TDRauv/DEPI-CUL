@@ -7,6 +7,14 @@ import { ArrowLeft } from "lucide-react";
 import { MOBILITY_CASES, MobilityItem } from "@/data/mobility";
 import { useLanguage } from "@/app/context/LanguageContext";
 
+const categoryTranslations: Record<string, { es: string; en: string }> = {
+  Docente: { es: "Docente", en: "Faculty" },
+  Estudiantil: { es: "Estudiantil", en: "Student" },
+  Directiva: { es: "Directiva", en: "Leadership" },
+  Entrante: { es: "Entrante", en: "Incoming" },
+  Institucional: { es: "Institucional", en: "Institutional" },
+};
+
 export default function MovilidadAcademicaPage() {
   const [activeModalItem, setActiveModalItem] = useState<MobilityItem | null>(null);
   const [profileTab, setProfileTab] = useState<"estudiantes" | "docentes">("estudiantes");
@@ -29,7 +37,9 @@ export default function MovilidadAcademicaPage() {
 
         <div className="max-w-5xl mx-auto space-y-6 text-center">
           <span className="inline-block px-3.5 py-1 text-xs font-semibold uppercase tracking-wider bg-orange-500 text-white rounded-full shadow-sm">
-            {isEn ? "DEPI • Latin American University Corporation" : "DEPI • Corporación Universitaria Latinoamericana"}
+            {isEn
+              ? "DEPI • Latin American University Corporation"
+              : "DEPI • Corporación Universitaria Latinoamericana"}
           </span>
           <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight">
             {isEn ? "Academic Mobility" : "Movilidad Académica"}
@@ -42,12 +52,12 @@ export default function MovilidadAcademicaPage() {
           <div className="max-w-3xl mx-auto space-y-3 text-slate-200 text-sm sm:text-base leading-relaxed font-light">
             <p>
               {isEn
-                ? "Academic mobility allows the CUL community to engage in academic, research, professional, cultural, and intercultural experiences with national and international partner institutions. Broaden your horizons and build meaningful connections for personal and professional growth."
+                ? "Academic mobility is an opportunity for the CUL community to participate in academic, research, professional, cultural, and intercultural experiences with national and international institutions. Through mobility, you can broaden perspectives, strengthen competencies, experience new contexts, and build connections for personal, academic, and professional growth."
                 : "La movilidad académica es una oportunidad para que la comunidad CUL participe en experiencias académicas, investigativas, profesionales, culturales e interculturales con instituciones y organizaciones nacionales e internacionales. A través de la movilidad puedes ampliar perspectivas, fortalecer competencias, conocer nuevos contextos y construir conexiones para tu crecimiento personal, académico y profesional."}
             </p>
             <p className="text-xs sm:text-sm text-slate-300 font-medium">
               {isEn
-                ? "Experiences are available in either in-person or virtual formats according to each call."
+                ? "Experiences can take place in-person or virtually, depending on each opportunity."
                 : "Las experiencias pueden desarrollarse en modalidad presencial o virtual, según las características de cada oportunidad."}
             </p>
           </div>
@@ -67,25 +77,43 @@ export default function MovilidadAcademicaPage() {
             <p className="text-sm sm:text-base text-slate-200 leading-relaxed font-light">
               {isEn ? (
                 <>
-                  Open to <strong className="font-semibold text-white">virtual and in-person students</strong>, <strong className="font-semibold text-white">professors</strong>, <strong className="font-semibold text-white">researchers</strong>, and <strong className="font-semibold text-white">administrative staff</strong> of Corporación Universitaria Latinoamericana – CUL.
+                  Open to{" "}
+                  <strong className="font-semibold text-white">
+                    virtual and in-person students
+                  </strong>
+                  , <strong className="font-semibold text-white">faculty</strong>,{" "}
+                  <strong className="font-semibold text-white">researchers</strong>, and{" "}
+                  <strong className="font-semibold text-white">administrative staff</strong>{" "}
+                  of Corporación Universitaria Latinoamericana – CUL.
                 </>
               ) : (
                 <>
-                  Están dirigidas a los <strong className="font-semibold text-white">estudiantes de la modalidad virtual y presencial</strong>, a los <strong className="font-semibold text-white">docentes</strong>, <strong className="font-semibold text-white">investigadores</strong> y <strong className="font-semibold text-white">administrativos</strong> de la Corporación Universitaria Latinoamericana – CUL.
+                  Están dirigidas a los{" "}
+                  <strong className="font-semibold text-white">
+                    estudiantes de la modalidad virtual y presencial
+                  </strong>
+                  , a los <strong className="font-semibold text-white">docentes</strong>,{" "}
+                  <strong className="font-semibold text-white">investigadores</strong> y{" "}
+                  <strong className="font-semibold text-white">administrativos</strong> de
+                  la Corporación Universitaria Latinoamericana – CUL.
                 </>
               )}
             </p>
           </div>
         </section>
 
-        {/* Modalidades por perfil */}
+        {/* ¿Qué experiencia de movilidad estás buscando? */}
         <section className="bg-white rounded-3xl border border-slate-200 shadow-sm p-8 sm:p-12 space-y-8">
           <div className="text-center max-w-xl mx-auto space-y-2">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-              {isEn ? "What mobility experience are you looking for?" : "¿Qué experiencia de movilidad estás buscando?"}
+              {isEn
+                ? "What mobility experience are you looking for?"
+                : "¿Qué experiencia de movilidad estás buscando?"}
             </h2>
             <p className="text-sm text-slate-500">
-              {isEn ? "Select your role to view available options." : "Selecciona tu rol en la institución para conocer las opciones disponibles."}
+              {isEn
+                ? "Select your role at the institution to explore available options."
+                : "Selecciona tu rol en la institución para conocer las opciones disponibles."}
             </p>
 
             <div className="flex justify-center gap-2 pt-4 max-w-sm mx-auto">
@@ -117,47 +145,57 @@ export default function MovilidadAcademicaPage() {
           {profileTab === "estudiantes" && (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
               <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-                <h3 className="font-bold text-slate-900 text-base">{isEn ? "Academic Exchange" : "Intercambio Académico"}</h3>
+                <h3 className="font-bold text-slate-900 text-base">
+                  {isEn ? "Academic Exchange" : "Intercambio Académico"}
+                </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   {isEn
-                    ? "Take courses or develop academic activities at partner universities in-person or virtually."
-                    : "Cursa asignaturas o desarrolla actividades académicas en una institución aliada, de manera presencial o virtual."}
+                    ? "Take courses or develop academic activities at a partner institution, either in-person or virtually, according to each call's guidelines."
+                    : "Cursa asignaturas o desarrolla actividades académicas en una institución aliada, de manera presencial o virtual, de acuerdo con las condiciones de cada oportunidad."}
                 </p>
               </div>
 
               <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-                <h3 className="font-bold text-slate-900 text-base">{isEn ? "Language Exchange" : "Intercambio Lingüístico"}</h3>
+                <h3 className="font-bold text-slate-900 text-base">
+                  {isEn ? "Language Exchange" : "Intercambio Lingüístico"}
+                </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   {isEn
-                    ? "Participate in programs designed for language learning and intercultural engagement."
-                    : "Participa en experiencias orientadas al aprendizaje y fortalecimiento de una lengua, mientras interactúas con otras culturas."}
+                    ? "Participate in experiences focused on learning and strengthening a foreign language while interacting with other cultures and communities."
+                    : "Participa en experiencias orientadas al aprendizaje y fortalecimiento de una lengua, mientras interactúas con otras culturas y comunidades."}
                 </p>
               </div>
 
               <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-                <h3 className="font-bold text-slate-900 text-base">{isEn ? "Internships" : "Prácticas"}</h3>
+                <h3 className="font-bold text-slate-900 text-base">
+                  {isEn ? "Internships" : "Prácticas"}
+                </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   {isEn
-                    ? "Gain practical professional experience related to your degree in international organizations or companies."
-                    : "Desarrolla una experiencia práctica relacionada con tu formación profesional en una institución, empresa u organización."}
+                    ? "Gain practical professional experience related to your degree at an institution, company, or organization according to academic requirements."
+                    : "Desarrolla una experiencia práctica relacionada con tu formación profesional en una institución, empresa u organización, conforme a las condiciones académicas."}
                 </p>
               </div>
 
               <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-                <h3 className="font-bold text-slate-900 text-base">{isEn ? "Research Stays" : "Pasantías de Investigación"}</h3>
+                <h3 className="font-bold text-slate-900 text-base">
+                  {isEn ? "Research Internships" : "Pasantías de Investigación"}
+                </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   {isEn
-                    ? "Collaborate on research projects alongside national or international faculty and scientific networks."
-                    : "Participa en proyectos, grupos o actividades de investigación junto a investigadores de universidades aliadas."}
+                    ? "Participate in research projects, groups, or activities alongside researchers, universities, or national and international research centers."
+                    : "Participa en proyectos, grupos o actividades de investigación junto a investigadores, universidades o centros de investigación nacionales o internacionales."}
                 </p>
               </div>
 
               <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 md:col-span-2 lg:col-span-2">
-                <h3 className="font-bold text-slate-900 text-base">{isEn ? "Short Stays" : "Estancias Cortas"}</h3>
+                <h3 className="font-bold text-slate-900 text-base">
+                  {isEn ? "Short Stays" : "Estancias Cortas"}
+                </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   {isEn
-                    ? "Short-term experiences: summer courses, seminars, congresses, international volunteering, and academic missions."
-                    : "Participa en experiencias de corta duración: cursos, campamentos, seminarios, congresos, eventos y misiones institucionales."}
+                    ? "Participate in short-duration experiences: courses, camps, seminars, congresses, events, volunteering, academic visits, and institutional missions."
+                    : "Participa en experiencias de corta duración: cursos, campamentos, seminarios, congresos, eventos, voluntariados, visitas académicas y misiones institucionales."}
                 </p>
               </div>
             </div>
@@ -166,134 +204,420 @@ export default function MovilidadAcademicaPage() {
           {profileTab === "docentes" && (
             <div className="grid md:grid-cols-2 gap-6 pt-4">
               <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-                <h3 className="font-bold text-slate-900 text-base">{isEn ? "Faculty Research Stays" : "Pasantías y Estancias de Investigación"}</h3>
+                <h3 className="font-bold text-slate-900 text-base">
+                  {isEn
+                    ? "Research Internships & Stays"
+                    : "Pasantías y Estancias de Investigación"}
+                </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   {isEn
-                    ? "Lead collaborative research projects with global researchers and international scientific communities."
-                    : "Participa en proyectos, grupos y actividades de investigación con comunidades académicas internacionales."}
+                    ? "Participate in research projects, groups, and activities with national or international academic institutions and communities."
+                    : "Participa en proyectos, grupos y actividades de investigación con instituciones y comunidades académicas nacionales o internacionales."}
                 </p>
               </div>
 
               <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-                <h3 className="font-bold text-slate-900 text-base">{isEn ? "Teaching Stays" : "Estancias Académicas"}</h3>
+                <h3 className="font-bold text-slate-900 text-base">
+                  {isEn ? "Academic Stays" : "Estancias Académicas"}
+                </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   {isEn
-                    ? "Deliver guest lectures, mirror classes, and knowledge exchange programs at partner institutions."
-                    : "Desarrolla actividades de docencia, clases espejo e intercambio de conocimientos con instituciones aliadas."}
+                    ? "Develop training, teaching, knowledge-exchange, and capacity-building activities with partner institutions."
+                    : "Desarrolla actividades de formación, docencia, intercambio de conocimientos y fortalecimiento de capacidades con instituciones aliadas."}
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                <h3 className="font-bold text-slate-900 text-base">
+                  {isEn
+                    ? "Academic Missions & Visits"
+                    : "Misiones y Visitas Académicas"}
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  {isEn
+                    ? "Participate in congresses, seminars, meetings, institutional visits, and other academic and scientific networking experiences."
+                    : "Participa en congresos, seminarios, encuentros, visitas institucionales y otras experiencias de relacionamiento académico y científico."}
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                <h3 className="font-bold text-slate-900 text-base">
+                  {isEn
+                    ? "Other Internationalization Experiences"
+                    : "Otras Experiencias de Internacionalización"}
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  {isEn
+                    ? "Access cooperation, training, academic exchange, and network-strengthening opportunities according to available calls."
+                    : "Accede a oportunidades de cooperación, formación, intercambio académico y fortalecimiento de redes de acuerdo con las convocatorias disponibles."}
                 </p>
               </div>
             </div>
           )}
         </section>
 
-        {/* Galería de Casos de Movilidad */}
+        {/* Modalidades y Carácter de la Movilidad */}
+        <section className="space-y-12">
+          <div className="space-y-6">
+            <div>
+              <span className="text-xs font-bold text-blue-600 uppercase tracking-widest block mb-1">
+                {isEn ? "Formats & Pathways" : "Formatos y Vías"}
+              </span>
+              <h2 className="text-3xl font-extrabold text-slate-900">
+                {isEn ? "Mobility Modalities" : "Modalidades de Movilidad"}
+              </h2>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
+                <span className="text-3xl block">🌎</span>
+                <h3 className="font-bold text-slate-900 text-base">
+                  {isEn ? "Outbound Mobility" : "Movilidad Saliente"}
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  {isEn
+                    ? "Members of the CUL community participate in activities outside the institution at a national or international level."
+                    : "Integrantes de la comunidad CUL participan en actividades fuera de la institución a nivel nacional o internacional."}
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
+                <span className="text-3xl block">🏫</span>
+                <h3 className="font-bold text-slate-900 text-base">
+                  {isEn ? "Inbound Mobility" : "Movilidad Entrante"}
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  {isEn
+                    ? "Students or collaborators from other institutions participate in academic or research activities at CUL."
+                    : "Estudiantes o colaboradores de otras instituciones participan en actividades académicas o de investigación en la CUL."}
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
+                <span className="text-3xl block">✈️</span>
+                <h3 className="font-bold text-slate-900 text-base">
+                  {isEn ? "In-Person Mobility" : "Movilidad Presencial"}
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  {isEn
+                    ? "Experiences involving physical travel to the host institution or organization where the activity takes place."
+                    : "Experiencias con desplazamiento físico a la institución u organización donde se ejecuta la actividad."}
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
+                <span className="text-3xl block">💻</span>
+                <h3 className="font-bold text-slate-900 text-base">
+                  {isEn ? "Virtual Mobility" : "Movilidad Virtual"}
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  {isEn
+                    ? "Experiences mediated through digital environments enabling academic interaction without physical travel."
+                    : "Experiencias a través de entornos digitales que posibilitan la interacción sin necesidad de desplazamiento."}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            <div>
+              <span className="text-xs font-bold text-blue-600 uppercase tracking-widest block mb-1">
+                {isEn ? "Territorial Scope" : "Alcance Territorial"}
+              </span>
+              <h2 className="text-3xl font-extrabold text-slate-900">
+                {isEn ? "Character of Mobility" : "Carácter de la Movilidad"}
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+                <div className="space-y-2">
+                  <span className="text-3xl block">📍</span>
+                  <h3 className="font-bold text-slate-900 text-lg">
+                    {isEn ? "Regional" : "Regional"}
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {isEn
+                      ? "Carried out in organizations and institutions across the Colombian Caribbean region to boost regional exchange."
+                      : "Desarrolladas en organizaciones e instituciones de la región Caribe colombiana para potenciar el intercambio regional."}
+                  </p>
+                </div>
+                <p className="text-xs font-bold text-amber-600 pt-3 border-t border-slate-100">
+                  {isEn
+                    ? "Connect with your region and discover new experiences."
+                    : "Conecta con tu región y descubre nuevas experiencias."}
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+                <div className="space-y-2">
+                  <span className="text-3xl block">🇨🇴</span>
+                  <h3 className="font-bold text-slate-900 text-lg">
+                    {isEn ? "National" : "Nacional"}
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {isEn
+                      ? "Experiences in other regions of Colombia to exchange methodologies, expand collaboration networks, and share knowledge."
+                      : "Experiencias en otras regiones del país para intercambiar metodologías, ampliar redes de colaboración y saberes."}
+                  </p>
+                </div>
+                <p className="text-xs font-bold text-amber-600 pt-3 border-t border-slate-100">
+                  {isEn
+                    ? "Broaden your horizons across Colombia."
+                    : "Amplía tus horizontes dentro de Colombia."}
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+                <div className="space-y-2">
+                  <span className="text-3xl block">🌐</span>
+                  <h3 className="font-bold text-slate-900 text-lg">
+                    {isEn ? "International" : "Internacional"}
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {isEn
+                      ? "Experiences outside Colombia to engage with global environments and consolidate intercultural competencies."
+                      : "Experiencias fuera de Colombia para conocer nuevos contextos globales y consolidar competencias interculturales."}
+                  </p>
+                </div>
+                <p className="text-xs font-bold text-amber-600 pt-3 border-t border-slate-100">
+                  {isEn
+                    ? "Connect with the world and live a global experience."
+                    : "Conecta con el mundo y vive una experiencia global."}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 2. Galería de Experiencias y Misiones Internacionales */}
         <section className="space-y-8">
           <div>
             <span className="text-xs font-bold text-blue-600 uppercase tracking-widest block mb-1">
               {isEn ? "Institutional Record" : "Registro Institucional"}
             </span>
             <h2 className="text-3xl font-extrabold text-slate-900">
-              {isEn ? "International Experiences & Missions" : "Experiencias y Misiones Internacionales"}
+              {isEn
+                ? "International Experiences & Missions"
+                : "Experiencias y Misiones Internacionales"}
             </h2>
             <p className="text-sm text-slate-500 mt-1">
               {isEn
-                ? "Click any card to explore detailed information and official publication links."
+                ? "Click on any card to see detailed information and direct links to official publications."
                 : "Haz clic en cualquiera de las cartas para ver la información detallada y los enlaces directos a sus publicaciones oficiales."}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {MOBILITY_CASES.map((item) => (
-              <div
-                key={item.id}
-                onClick={() => setActiveModalItem(item)}
-                className="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden cursor-pointer group"
-              >
-                <div className="relative h-60 w-full bg-slate-100 overflow-hidden">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                  <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <span className="bg-blue-600/95 backdrop-blur-sm text-white text-xs font-semibold px-2.5 py-1 rounded-md shadow">
-                      {item.flag} {item.country}
-                    </span>
-                    <span className="bg-slate-900/80 backdrop-blur-sm text-white text-[11px] font-medium px-2 py-0.5 rounded-md shadow">
-                      {item.category}
-                    </span>
+            {MOBILITY_CASES.map((item) => {
+              const itemTitle =
+                typeof item.title === "object" ? item.title[lang] : item.title;
+              const itemInstitution =
+                typeof item.institution === "object"
+                  ? item.institution[lang]
+                  : item.institution;
+              const itemDates =
+                typeof item.dates === "object" ? item.dates[lang] : item.dates;
+              const itemDesc =
+                typeof item.description === "object"
+                  ? item.description[lang]
+                  : item.description;
+
+              return (
+                <div
+                  key={item.id}
+                  onClick={() => setActiveModalItem(item)}
+                  className="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden cursor-pointer group"
+                >
+                  <div className="relative h-60 w-full bg-slate-100 overflow-hidden">
+                    <Image
+                      src={item.image}
+                      alt={itemTitle}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                    <div className="absolute top-3 left-3 flex items-center gap-2">
+                      <span className="bg-blue-600/95 backdrop-blur-sm text-white text-xs font-semibold px-2.5 py-1 rounded-md shadow">
+                        {item.flag} {item.country}
+                      </span>
+                      <span className="bg-slate-900/80 backdrop-blur-sm text-white text-[11px] font-medium px-2 py-0.5 rounded-md shadow">
+                        {categoryTranslations[item.category]?.[lang] ?? item.category}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <div>
+                      <span className="text-xs font-bold text-blue-700 tracking-wide block uppercase line-clamp-1">
+                        {itemInstitution}
+                      </span>
+                      <h3 className="text-lg font-bold text-slate-900 mt-1 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                        {itemTitle}
+                      </h3>
+                      <p className="text-xs text-slate-500 mt-1">{itemDates}</p>
+                      <p className="text-sm text-slate-600 mt-3 line-clamp-3 leading-relaxed">
+                        {itemDesc}
+                      </p>
+                    </div>
+
+                    <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                      <span className="text-xs font-bold text-blue-600 group-hover:underline">
+                        {isEn ? "View full experience →" : "Ver experiencia completa →"}
+                      </span>
+                      <span className="text-xs text-pink-600 bg-pink-50 border border-pink-100 px-2 py-1 rounded font-medium">
+                        Instagram
+                      </span>
+                    </div>
                   </div>
                 </div>
-
-                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                  <div>
-                    <span className="text-xs font-bold text-blue-700 tracking-wide block uppercase line-clamp-1">
-                      {item.institution}
-                    </span>
-                    <h3 className="text-lg font-bold text-slate-900 mt-1 line-clamp-2 group-hover:text-blue-600 transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-slate-500 mt-1">{item.dates}</p>
-                    <p className="text-sm text-slate-600 mt-3 line-clamp-3 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-xs font-bold text-blue-600 group-hover:underline">
-                      {isEn ? "View full experience →" : "Ver experiencia completa →"}
-                    </span>
-                    <span className="text-xs text-pink-600 bg-pink-50 border border-pink-100 px-2 py-1 rounded font-medium">
-                      Instagram
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
-        {/* Requisitos Generales */}
+        {/* Requisitos Generales de Postulación */}
         <section className="bg-white rounded-3xl border border-slate-200 shadow-sm p-8 sm:p-12 space-y-8">
           <div className="max-w-2xl space-y-2">
             <span className="text-xs font-bold text-blue-600 uppercase tracking-widest block">
               {isEn ? "Institutional Guidelines" : "Lineamientos Institucionales"}
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-              {isEn ? "General Application Requirements" : "Requisitos Generales de Postulación"}
+              {isEn
+                ? "General Application Requirements"
+                : "Requisitos Generales de Postulación"}
             </h2>
             <p className="text-sm text-slate-500">
               {isEn
-                ? "Minimum academic and administrative conditions required for exchange calls."
+                ? "Minimum academic and administrative conditions to apply for exchange and student mobility calls."
                 : "Condiciones académicas y administrativas mínimas para aspirar a convocatorias de intercambio y movilidad estudiantil."}
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-              <span className="w-8 h-8 rounded-full bg-blue-900 text-white flex items-center justify-center font-bold text-sm">1</span>
-              <h4 className="font-bold text-slate-900 text-sm">{isEn ? "Active Enrollment" : "Matrícula Activa"}</h4>
-              <p className="text-xs text-slate-600">{isEn ? "Be an active regular CUL student in-person or virtually." : "Ser estudiante regular activo de la CUL en modalidad presencial o virtual."}</p>
+              <span className="w-8 h-8 rounded-full bg-blue-900 text-white flex items-center justify-center font-bold text-sm">
+                1
+              </span>
+              <h4 className="font-bold text-slate-900 text-sm">
+                {isEn ? "Active Enrollment" : "Matrícula Activa"}
+              </h4>
+              <p className="text-xs text-slate-600">
+                {isEn
+                  ? "Be a regular active student of CUL in either in-person or virtual modality."
+                  : "Ser estudiante regular activo de la CUL en modalidad presencial o virtual."}
+              </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-              <span className="w-8 h-8 rounded-full bg-blue-900 text-white flex items-center justify-center font-bold text-sm">2</span>
-              <h4 className="font-bold text-slate-900 text-sm">{isEn ? "Academic Progress" : "Avance Académico"}</h4>
-              <p className="text-xs text-slate-600">{isEn ? "Have passed at least 40% of degree curriculum credits." : "Haber cursado y aprobado mínimo el 40% de los créditos del plan de estudios."}</p>
+              <span className="w-8 h-8 rounded-full bg-blue-900 text-white flex items-center justify-center font-bold text-sm">
+                2
+              </span>
+              <h4 className="font-bold text-slate-900 text-sm">
+                {isEn ? "Academic Progress" : "Avance Académico"}
+              </h4>
+              <p className="text-xs text-slate-600">
+                {isEn
+                  ? "Have completed and passed at least 40% of the study plan credits."
+                  : "Haber cursado y aprobado mínimo el 40% de los créditos del plan de estudios."}
+              </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-              <span className="w-8 h-8 rounded-full bg-blue-900 text-white flex items-center justify-center font-bold text-sm">3</span>
-              <h4 className="font-bold text-slate-900 text-sm">{isEn ? "Minimum GPA" : "Promedio Mínimo"}</h4>
-              <p className="text-xs text-slate-600">{isEn ? "Cumulative GPA equal to or above 3.8." : "Contar con un promedio acumulado igual o superior a 3.8."}</p>
+              <span className="w-8 h-8 rounded-full bg-blue-900 text-white flex items-center justify-center font-bold text-sm">
+                3
+              </span>
+              <h4 className="font-bold text-slate-900 text-sm">
+                {isEn ? "Minimum GPA" : "Promedio Mínimo"}
+              </h4>
+              <p className="text-xs text-slate-600">
+                {isEn
+                  ? "Have a cumulative GPA equal to or higher than 3.8 (or according to each scholarship's terms)."
+                  : "Contar con un promedio acumulado igual o superior a 3.8 (o según términos específicos de cada beca)."}
+              </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-              <span className="w-8 h-8 rounded-full bg-blue-900 text-white flex items-center justify-center font-bold text-sm">4</span>
-              <h4 className="font-bold text-slate-900 text-sm">{isEn ? "Disciplinary Record" : "Historial Disciplinario"}</h4>
-              <p className="text-xs text-slate-600">{isEn ? "Have no active disciplinary or academic sanctions." : "No registrar sanciones disciplinarias ni condicionamientos vigentes."}</p>
+              <span className="w-8 h-8 rounded-full bg-blue-900 text-white flex items-center justify-center font-bold text-sm">
+                4
+              </span>
+              <h4 className="font-bold text-slate-900 text-sm">
+                {isEn ? "Disciplinary Record" : "Historial Disciplinario"}
+              </h4>
+              <p className="text-xs text-slate-600">
+                {isEn
+                  ? "Have no active disciplinary sanctions or academic probation."
+                  : "No registrar sanciones disciplinarias ni condicionamientos académicos vigentes."}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ¿Cómo postularte a una movilidad? (4 Pasos completos) */}
+        <section className="bg-white rounded-3xl border border-slate-200 shadow-sm p-8 sm:p-12 space-y-8">
+          <div className="text-center max-w-xl mx-auto space-y-2">
+            <span className="text-xs font-bold text-blue-600 uppercase tracking-widest block">
+              {isEn ? "Application Pathway" : "Ruta de Aplicación"}
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+              {isEn
+                ? "How to apply for mobility?"
+                : "¿Cómo postularte a una movilidad?"}
+            </h2>
+            <p className="text-sm text-slate-500">
+              {isEn
+                ? "Follow these steps with the guidance of the DEPI team."
+                : "Sigue estos pasos con el acompañamiento del equipo DEPI."}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-6">
+            <div className="p-6 border border-slate-200 rounded-2xl bg-slate-50 space-y-2">
+              <span className="text-2xl font-black text-amber-500">01</span>
+              <h3 className="font-bold text-slate-900 text-base">
+                {isEn ? "Consultation & Advising" : "Consulta y Asesoría"}
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                {isEn
+                  ? "Review open agreements and calls. Write to DEPI to receive personalized advice on options matching your study plan."
+                  : "Revisa los convenios y convocatorias abiertas. Escribe a DEPI para recibir asesoría sobre opciones compatibles con tu pensum."}
+              </p>
+            </div>
+
+            <div className="p-6 border border-slate-200 rounded-2xl bg-slate-50 space-y-2">
+              <span className="text-2xl font-black text-amber-500">02</span>
+              <h3 className="font-bold text-slate-900 text-base">
+                {isEn ? "Academic Program Approval" : "Aval de Programa"}
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                {isEn
+                  ? "Prepare your credit transfer proposal with your academic program director to validate courses."
+                  : "Elabora tu propuesta de homologación con la dirección de tu programa académico para validar las asignaturas a cursar."}
+              </p>
+            </div>
+
+            <div className="p-6 border border-slate-200 rounded-2xl bg-slate-50 space-y-2">
+              <span className="text-2xl font-black text-amber-500">03</span>
+              <h3 className="font-bold text-slate-900 text-base">
+                {isEn ? "Official Application" : "Postulación Oficial"}
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                {isEn
+                  ? "DEPI formally submits your nomination and application dossier to the partner university or organizing entity."
+                  : "DEPI presenta formalmente tu postulación ante la universidad aliada o entidad organizadora junto con tu expediente."}
+              </p>
+            </div>
+
+            <div className="p-6 border border-slate-200 rounded-2xl bg-slate-50 space-y-2">
+              <span className="text-2xl font-black text-amber-500">04</span>
+              <h3 className="font-bold text-slate-900 text-base">
+                {isEn ? "Acceptance & Travel" : "Aceptación y Viaje"}
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                {isEn
+                  ? "Upon receiving your acceptance letter, arrange international medical insurance, visa procedures, and pre-departure orientation."
+                  : "Al recibir la carta de aceptación, gestionas seguro médico internacional, trámites migratorios e inducción previa al viaje."}
+              </p>
             </div>
           </div>
         </section>
@@ -304,12 +628,14 @@ export default function MovilidadAcademicaPage() {
             {isEn ? "Personalized Guidance" : "Orientación Personalizada"}
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-            {isEn ? "Do you want to live a global academic experience?" : "¿Tienes una idea o quieres vivir una experiencia global?"}
+            {isEn
+              ? "Do you have an idea or want to live a global experience?"
+              : "¿Tienes una idea o quieres vivir una experiencia global?"}
           </h2>
           <p className="text-sm text-slate-600 leading-relaxed max-w-xl mx-auto font-light">
             {isEn
-              ? "At DEPI we guide you to find international opportunities matching your profile."
-              : "Desde el Departamento de Internacionalización – DEPI te orientamos para identificar oportunidades de movilidad y experiencias acordes con tu perfil."}
+              ? "At the Department of Internationalization – DEPI we help you identify mobility opportunities matching your profile and degree."
+              : "Desde el Departamento de Internacionalización – DEPI te orientamos para identificar oportunidades de movilidad y experiencias acordes con tu perfil y formación."}
           </p>
 
           <Link
@@ -318,10 +644,19 @@ export default function MovilidadAcademicaPage() {
           >
             {isEn ? "Contact movilidad@ul.edu.co" : "Contactar a movilidad@ul.edu.co"}
           </Link>
+
+          <div className="pt-6 border-t border-slate-100 text-xs text-slate-500 space-y-1">
+            <p className="font-semibold text-slate-700">
+              {isEn
+                ? "DEPARTMENT OF INTERNATIONALIZATION – DEPI"
+                : "DEPARTAMENTO DE INTERNACIONALIZACIÓN – DEPI"}
+            </p>
+            <p>Corporación Universitaria Latinoamericana – CUL</p>
+          </div>
         </section>
       </div>
 
-      {/* Modal */}
+      {/* 4. Modal Interactivo */}
       {activeModalItem && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/70 backdrop-blur-sm transition-opacity"
@@ -342,7 +677,11 @@ export default function MovilidadAcademicaPage() {
             <div className="relative h-72 sm:h-96 w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200">
               <Image
                 src={activeModalItem.image}
-                alt={activeModalItem.title}
+                alt={
+                  typeof activeModalItem.title === "object"
+                    ? activeModalItem.title[lang]
+                    : activeModalItem.title
+                }
                 fill
                 className="object-contain p-2"
                 sizes="(max-width: 768px) 100vw, 768px"
@@ -352,26 +691,68 @@ export default function MovilidadAcademicaPage() {
             <div className="space-y-4">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="bg-blue-600 text-white text-xs font-semibold px-2.5 py-1 rounded">
-                  {activeModalItem.category}
+                  {categoryTranslations[activeModalItem.category]?.[lang] ??
+                    activeModalItem.category}
                 </span>
                 <span className="bg-slate-100 text-slate-800 text-xs font-bold px-2 py-1 rounded">
                   {activeModalItem.flag} {activeModalItem.country}
                 </span>
-                <span className="text-xs text-slate-400">• {activeModalItem.dates}</span>
+                <span className="text-xs text-slate-400">
+                  •{" "}
+                  {typeof activeModalItem.dates === "object"
+                    ? activeModalItem.dates[lang]
+                    : activeModalItem.dates}
+                </span>
               </div>
 
               <div>
                 <span className="text-xs font-bold text-blue-700 uppercase tracking-wide">
-                  {activeModalItem.institution}
+                  {typeof activeModalItem.institution === "object"
+                    ? activeModalItem.institution[lang]
+                    : activeModalItem.institution}
                 </span>
                 <h3 className="text-2xl font-extrabold text-slate-900 mt-1">
-                  {activeModalItem.title}
+                  {typeof activeModalItem.title === "object"
+                    ? activeModalItem.title[lang]
+                    : activeModalItem.title}
                 </h3>
               </div>
 
+              {activeModalItem.participants && (
+                <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-1">
+                  <span className="font-bold text-slate-700 block uppercase">
+                    {isEn ? "Participants / Delegation:" : "Participantes / Delegación:"}
+                  </span>
+                  {activeModalItem.participants.map((p, i) => (
+                    <p key={i} className="text-slate-600">
+                      • {p}
+                    </p>
+                  ))}
+                </div>
+              )}
+
               <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                {activeModalItem.description}
+                {typeof activeModalItem.description === "object"
+                  ? activeModalItem.description[lang]
+                  : activeModalItem.description}
               </p>
+
+              {activeModalItem.highlights && (
+                <div className="space-y-2">
+                  <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+                    {isEn ? "Key Highlights & Outcomes:" : "Puntos Clave y Logros:"}
+                  </h4>
+                  <ul className="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5">
+                    {(typeof activeModalItem.highlights === "object" &&
+                    !Array.isArray(activeModalItem.highlights)
+                      ? activeModalItem.highlights[lang]
+                      : (activeModalItem.highlights as string[])
+                    ).map((h, i) => (
+                      <li key={i}>{h}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               <div className="pt-4 border-t border-slate-100 flex flex-wrap gap-3">
                 {activeModalItem.links.map((link, idx) => (
@@ -381,6 +762,9 @@ export default function MovilidadAcademicaPage() {
                     target="_blank"
                     className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-xl shadow transition-all hover:scale-105"
                   >
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg>
                     {link.label}
                   </Link>
                 ))}
